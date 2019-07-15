@@ -1,0 +1,113 @@
+// Header
+//
+// Se definen los estilos del bloque principal
+
+// Navbar general
+#header {
+	position: relative;
+	padding-top: $spacer;
+	@include gradient-radial(transparent, $brand-primary-dark);
+}
+
+// Navbar
+.navbar--not-logged {
+	padding-top: $spacer * 4 !important;
+	background: transparent !important;
+	float: none;
+	text-align: center;
+}
+
+// Navbar user
+.navbar-brand--not-logged {
+  float: none;
+  text-align: center;
+  margin-right: 0;
+}
+
+// Logo UDD
+.logo-udd {
+	position: relative;
+	top: 3px;
+}
+
+// Site title
+.site-title {
+	margin-left: 1rem;
+	padding-left: 1rem;
+	font-family: "Francois One";
+	font-size: 24px;
+	text-transform: uppercase;
+	color: #fff;
+	border-left: 1px solid #fff;
+	&:hover {
+		color: #fff;
+		text-decoration: none;
+	}
+}
+.site-title--not-logged {
+	color: $brand-primary;
+	border-left: 1px solid $brand-primary;
+	&:hover {
+		color: $brand-primary;
+	}
+}
+/* mobile */
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.navbar--logged{
+				height: 45px;
+				padding-top: 0.8rem;
+			}
+			.site-title {
+				font-size: 21px;
+			}
+			.site-title--logged {
+				font-size: 19px;
+				margin-left: -12px;
+				display: inline-block;
+				height: 18px;
+				line-height: 18px;
+				padding-left: 8px;
+				position: absolute;
+				top: 15px;
+				left: 75px;
+			}
+			.navbar-brand--logged {
+				padding-top: 0;
+				padding-bottom: 0;
+				margin-top: -8px;
+			}
+			.navbar--logged .logo-udd {
+				-ms-transform: scale(0.5); /* IE 9 */
+				-webkit-transform: scale(0.5); /* Safari */
+				transform: scale(0.5);
+				margin-left: -20px;
+			}
+			.navbar--logged .container-fluid {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.navbar-user__main-data {
+				font-size: 11px;
+				height: 27px;
+				display: block;
+				overflow: hidden;
+				width: 90px;
+				line-height: 125%;
+				position: relative;
+				float: right;
+				padding-right: 30px;
+				margin-top: -3px;
+				margin-right: -10px;
+
+			}
+			.navbar-user__main-data a .icon-user, .navbar-user__main-data a .udd-tdr-icon-user {
+				position: absolute;
+				top: 3px; //6px;
+				right: 0;
+				font-size: 21px;
+			}
+		}
+	}
+}

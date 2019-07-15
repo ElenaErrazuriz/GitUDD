@@ -1,0 +1,122 @@
+@font-face {
+    font-family: tomaderamos-icons;
+    src: url('../font/tomaderamos-icons.eot');
+    src: url('../font/tomaderamos-icons.eot?#iefix') format('eot'),
+        url('../font/tomaderamos-icons.woff2') format('woff2'),
+        url('../font/tomaderamos-icons.woff') format('woff'),
+        url('../font/tomaderamos-icons.ttf') format('truetype'),
+        url('../font/tomaderamos-icons.svg#tomaderamos-icons') format('svg');
+}
+
+@mixin icon-styles {
+    font-family: tomaderamos-icons;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+}
+
+%icon {
+    @include icon-styles;
+}
+
+@function icon-char($filename) {
+    $char: "";
+
+    @if $filename == alert {
+        $char: "\E001";
+    }
+    @if $filename == calendar {
+        $char: "\E002";
+    }
+    @if $filename == caret-down {
+        $char: "\E003";
+    }
+    @if $filename == caret-left {
+        $char: "\E004";
+    }
+    @if $filename == caret-right {
+        $char: "\E005";
+    }
+    @if $filename == caret-up {
+        $char: "\E006";
+    }
+    @if $filename == file {
+        $char: "\E007";
+    }
+    @if $filename == more {
+        $char: "\E008";
+    }
+    @if $filename == ok-circle {
+        $char: "\E009";
+    }
+    @if $filename == ok {
+        $char: "\E00A";
+    }
+    @if $filename == poll {
+        $char: "\E00B";
+    }
+    @if $filename == remove {
+        $char: "\E00C";
+    }
+    @if $filename == user {
+        $char: "\E00D";
+    }
+
+    @return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+    &::#{$insert} {
+        @if $extend {
+            @extend %icon;
+        } @else {
+            @include icon-styles;
+        }
+        content: icon-char($filename);
+    }
+}
+
+.icon-alert {
+    @include icon(alert);
+}
+.icon-calendar {
+    @include icon(calendar);
+}
+.icon-caret-down {
+    @include icon(caret-down);
+}
+.icon-caret-left {
+    @include icon(caret-left);
+}
+.icon-caret-right {
+    @include icon(caret-right);
+}
+.icon-caret-up {
+    @include icon(caret-up);
+}
+.icon-file {
+    @include icon(file);
+}
+.icon-more {
+    @include icon(more);
+}
+.icon-ok-circle {
+    @include icon(ok-circle);
+}
+.icon-ok {
+    @include icon(ok);
+}
+.icon-poll {
+    @include icon(poll);
+}
+.icon-remove {
+    @include icon(remove);
+}
+.icon-user {
+    @include icon(user);
+}

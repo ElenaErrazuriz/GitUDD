@@ -1,0 +1,46 @@
+// Buttons Group
+
+.btn-group--subject-inscription {
+	position: absolute;
+	//top: 0;
+	left: 15px;
+	width: 36px;
+	height: 20px !important;
+	border-radius: 0;
+	background: transparent;
+	//border: none;
+	border: 2px solid $gray-lighter;
+	-webkit-appearance:none;
+	top: 18px;
+}
+.btn-group--subject-inscription.open {
+	border-color: $brand-primary;
+}
+.btn-group--subject-inscription .btn-link {
+	padding: 0;
+	height: 20px !important;
+	line-height: 20px;
+}
+.btn-group--subject-inscription .dropdown-toggle-split {
+	position: absolute;
+	right: 2px;
+	top: -4px;
+}
+.dropdown-menu--subject-inscription {
+	width: 36px;
+	text-align: center;
+	min-width: 1px;
+	margin: 2px 0 0 -2px;
+	padding: 0;
+	border: none;
+	@include box-shadow($left:0, $top:0, $blur:10px, $color: rgba(0,0,0,.3), $inset:"");
+	top: 135%;
+}
+.dropdown-item--subject-inscription {
+	padding: 0;
+	font-weight: bold;
+	border-top: 1px solid $gray-lighter;
+	&:first-child {
+		border-top: none;
+	}
+}

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Toma de Ramos - UDD</title>
+		<!-- Styles -->
+		<link href="https://fonts.googleapis.com/css?family=Francois+One|Fira+Sans:500|Source+Sans+Pro:400,400i,600" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/style-udd-tdr-icons.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	<!-- cambio -->
+	<body class="logged">
+		<!-- menu alumno móvil -->
+		<nav id="navbar-user-mobile" class="navbar-user navbar-user--mobile bg-primary">
+			<a class="navbar-user__name" href="#">Pedro Jiménez Pereira</a>
+			<a href="#" class="navbar-user__logout">Salir</a>
+			<div class="user-career">
+				<a href="#" class="navbar-user__career">Kinesiología</a>
+				<a href="#" class="navbar-user__change-career btn btn-link">Cambiar carrera</a>
+			</div>
+			<p class="navbar-user__academic-data">
+				Nº Matrícula: 14 -
+				Prioridad Académica: 0.49
+			</p>
+		</nav>
+		<!-- cabecera -->
+		<nav id="header" class="navbar navbar-dark bg-primary navbar--logged">
+			<div class="container-fluid">
+				<nav class="navbar-brand navbar-brand--logged">
+					<a href="http://www.udd.cl" class="logo-udd"></a>
+					<a href="#" class="site-title site-title--logged">Toma de Ramos</a>
+				</nav>
+				<nav class="navbar-user">
+					<a href="#" class="navbar-user__logout hidden-xs-down">Salir</a>
+					<div class="navbar-user__data">
+						<nav class="navbar-user__main-data">
+							<ul class="list-inline">
+								<li class="list-inline-item"><a id="user-mobile" href="#">Pedro Jiménez Pereira <span class="udd-tdr-icon-user hidden-sm-up"></span></a></li>
+								<li class="list-inline-item"><span class="navbar-user__career-id">201411400C005</span></li>
+								<li class="list-inline-item"><a href="#" class="navbar-user__career hidden-xs-down">Kinesiología</a></li>
+							</ul>
+						</nav>
+						<nav class="navbar-user__academic-data hidden-xs-down">
+							<ul class="list-inline">
+								<li class="list-inline-item"><a href="#">Malla Curricular</a></li>
+								<li class="list-inline-item"><a href="#">Ficha Curricular</a></li>
+								<li class="list-inline-item"><a href="#">Prioridad Académica:</a> 0.49</li>
+							</ul>
+						</nav>
+					</div>
+				</nav>
+			</div>
+		</nav>
+		<!-- fin cabecera -->
+		<div class="content content--logged">
+			<header class="stage-header stage-header--gray">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-22 offset-sm-1">
+							<a href="#" class="btn btn-link btn-sm btn-back"><span class="hidden-sm-down">Volver</span></a>
+							<h1 class="stage-header__title">Materialidad en la edificación</h1>
+							<!--<h2 class="stage-header__dates">15 de marzo - 16 de abril</h2>-->
+							<div class="stage-header__description">
+								<p><strong>Tienes una sección Preinscrita.</strong> Este ramo es obligatorio y no lo puedes desinscribir.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<main class="stage-content stage-content--no-top-padding">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-22 offset-sm-1">
+							<ul class="subjects">
+								<li class=" subject subject--inscription subject--status-requested">
+									<div class="subject__wrap">
+										<header class="subject__header subject__header--inscription">
+											<span class="subject__status">Solicitado</span>
+											<span class="subject__code">Arq154</span>
+											<h3 class="subject__name">Materialidad en la edificación | Cátedra</h3>
+											<!--<span class="subject__description hidden-xs-down">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>-->
+										</header>
+										<div class="subject__section-quotas hidden-xs-down">
+											<span class="subject__section-quotas-counter">20 cupos <a href="#"  data-toggle="modal" data-target="#myModal">[ver lista]</a></span>
+											<span class="subject__section-name">Sección 1</span>
+										</div>
+									</div>
+									<main class="subject__data-place">
+										<div class="row">
+											<div class="col-sm-11">
+												<p class="subject__data-place-schedule">
+													<strong>Horario</strong>
+													<br class="hidden-xs-down">
+													Lun 8:30-10:30, Mar 12:00-13:00, Jue 17:00-18:30
+												</p>
+											</div>
+											<div class="col-sm-5">
+												<p class="subject__data-place-teacher">
+													<strong>Profesor:</strong>
+													<br class="hidden-xs-down">
+													Heraldo Muñoz
+												</p>
+											</div>
+											<div class="col-sm-8 hidden-xs-down">
+												<p class="subject__data-place-campus">
+													<strong>Sala - Campus:</strong>
+													<br class="hidden-xs-down">
+													43b - Rector Ernesto Silva Ballafuy
+												</p>
+											</div>
+										</div>
+									</main>
+									<footer class="subject__data-mobile hidden-sm-up">
+										<a href="#" class="btn btn-link btn-link-subject-data-place hidden-sm-up"  data-toggle="modal" data-target="#myModal"><span class="open-target">Ver más</span><span class="hide-target">Ocultar</span></a>
+										<div class="subject__data-mobile-content">
+											<span class="subject__description-mobile">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>
+											<span class="subject__data-place-campus">
+												<strong>Sala - Campus:</strong>
+												<br class="hidden-xs-down">
+												43b - Rector Ernesto Silva Ballafuy
+											</span>
+											<span class="subject__section-quotas-counter">Cupos: 3/20 <a href="#"  data-toggle="modal" data-target="#myModal">[ver alumnos]</a></span>
+										</div>
+									</footer>
+								</li>
+								<li class="subject subject--inscription subject--status-registered">
+									<div class="subject__wrap">
+										<header class="subject__header subject__header--inscription">
+											<span class="subject__status">Inscrito</span>
+											<span class="subject__code">Arq154</span>
+											<h3 class="subject__name">Materialidad en la edificación | Cátedra</h3>
+											<span class="subject__description hidden-xs-down">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>
+										</header>
+										<div class="subject__section-quotas hidden-xs-down">
+											<span class="subject__section-quotas-counter">12 cupos <a href="#"   data-toggle="modal" data-target="#myModal">[ver lista]</a></span>
+											<span class="subject__section-name">Sección 2</span>
+										</div>
+									</div>
+									<main class="subject__data-place">
+										<div class="row">
+											<div class="col-sm-11">
+												<p class="subject__data-place-schedule">
+													<strong>Horario</strong>
+													<br class="hidden-xs-down">
+													Lun 8:30-10:30, Mar 12:00-13:00, Jue 17:00-18:30
+												</p>
+											</div>
+											<div class="col-sm-5">
+												<p class="subject__data-place-teacher">
+													<strong>Profesor:</strong>
+													<br class="hidden-xs-down">
+													Heraldo Muñoz
+												</p>
+											</div>
+											<div class="col-sm-8 hidden-xs-down">
+												<p class="subject__data-place-campus">
+													<strong>Sala - Campus:</strong>
+													<br class="hidden-xs-down">
+													43b - Rector Ernesto Silva Ballafuy
+												</p>
+											</div>
+										</div>
+									</main>
+									<footer class="subject__data-mobile hidden-sm-up">
+										<a href="#" class="btn btn-link btn-link-subject-data-place hidden-sm-up"  data-toggle="modal" data-target="#myModal"><span class="open-target">Ver más</span><span class="hide-target">Ocultar</span></a>
+										<div class="subject__data-mobile-content">
+											<span class="subject__description-mobile">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>
+											<span class="subject__data-place-campus">
+												<strong>Sala - Campus:</strong>
+												<br class="hidden-xs-down">
+												43b - Rector Ernesto Silva Ballafuy
+											</span>
+											<span class="subject__section-quotas-counter">Cupos: 3/20 <a href="#"  data-toggle="modal" data-target="#myModal">[ver alumnos]</a></span>
+										</div>
+									</footer>
+								</li>
+								<li class="subject subject--inscription">
+									<div class="subject__wrap">
+										<header class="subject__header subject__header--inscription">
+											<span class="subject__code">Arq154</span>
+											<h3 class="subject__name">Materialidad en la edificación | Cátedra</h3>
+											<span class="subject__description hidden-xs-down">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>
+										</header>
+										<div class="subject__section-quotas hidden-xs-down">
+											<span class="subject__section-quotas-counter">11 cupos <a href="#"   data-toggle="modal" data-target="#myModal">[ver lista]</a></span>
+											<span class="subject__section-name">Sección 3</span>
+										</div>
+									</div>
+									<main class="subject__data-place">
+										<div class="row">
+											<div class="col-sm-11">
+												<p class="subject__data-place-schedule">
+													<strong>Horario</strong>
+													<br class="hidden-xs-down">
+													Lun 8:30-10:30, Mar 12:00-13:00, Jue 17:00-18:30
+												</p>
+											</div>
+											<div class="col-sm-5">
+												<p class="subject__data-place-teacher">
+													<strong>Profesor:</strong>
+													<br class="hidden-xs-down">
+													Heraldo Muñoz
+												</p>
+											</div>
+											<div class="col-sm-8 hidden-xs-down">
+												<p class="subject__data-place-campus">
+													<strong>Sala - Campus:</strong>
+													<br class="hidden-xs-down">
+													43b - Rector Ernesto Silva Ballafuy
+												</p>
+											</div>
+										</div>
+									</main>
+									<footer class="subject__data-mobile hidden-sm-up">
+										<a href="#" class="btn btn-link btn-link-subject-data-place hidden-sm-up"  data-toggle="modal" data-target="#myModal"><span class="open-target">Ver más</span><span class="hide-target">Ocultar</span></a>
+										<div class="subject__data-mobile-content">
+											<span class="subject__description-mobile">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>
+											<span class="subject__data-place-campus">
+												<strong>Sala - Campus:</strong>
+												<br class="hidden-xs-down">
+												43b - Rector Ernesto Silva Ballafuy
+											</span>
+											<span class="subject__section-quotas-counter">Cupos: 3/20 <a href="#"  data-toggle="modal" data-target="#myModal">[ver alumnos]</a></span>
+										</div>
+									</footer>
+								</li>
+								<li class="subject subject--inscription">
+									<div class="subject__wrap">
+										<header class="subject__header subject__header--inscription">
+											<span class="subject__code">Arq154</span>
+											<h3 class="subject__name">Materialidad en la edificación | Cátedra</h3>
+											<span class="subject__description hidden-xs-down">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>
+										</header>
+										<div class="subject__section-quotas hidden-xs-down">
+											<span class="subject__section-quotas-counter">7 cupos <a href="#"   data-toggle="modal" data-target="#myModal">[ver lista]</a></span>
+											<span class="subject__section-name">Sección 4</span>
+										</div>
+									</div>
+									<main class="subject__data-place">
+										<div class="row">
+											<div class="col-sm-11">
+												<p class="subject__data-place-schedule">
+													<strong>Horario</strong>
+													<br class="hidden-xs-down">
+													Lun 8:30-10:30, Mar 12:00-13:00, Jue 17:00-18:30
+												</p>
+											</div>
+											<div class="col-sm-5">
+												<p class="subject__data-place-teacher">
+													<strong>Profesor:</strong>
+													<br class="hidden-xs-down">
+													Heraldo Muñoz
+												</p>
+											</div>
+											<div class="col-sm-8 hidden-xs-down">
+												<p class="subject__data-place-campus">
+													<strong>Sala - Campus:</strong>
+													<br class="hidden-xs-down">
+													43b - Rector Ernesto Silva Ballafuy
+												</p>
+											</div>
+										</div>
+									</main>
+									<footer class="subject__data-mobile hidden-sm-up">
+										<a href="#" class="btn btn-link btn-link-subject-data-place hidden-sm-up"  data-toggle="modal" data-target="#myModal"><span class="open-target">Ver más</span><span class="hide-target">Ocultar</span></a>
+										<div class="subject__data-mobile-content">
+											<span class="subject__description-mobile">En caso de que sea requerido, aquí va un mensaje especial del ramo.</span>
+											<span class="subject__data-place-campus">
+												<strong>Sala - Campus:</strong>
+												<br class="hidden-xs-down">
+												43b - Rector Ernesto Silva Ballafuy
+											</span>
+											<span class="subject__section-quotas-counter">Cupos: 3/20 <a href="#"  data-toggle="modal" data-target="#myModal">[ver alumnos]</a></span>
+										</div>
+									</footer>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer id="footer">
+				<div class="container">
+					<h3 class="text-xs-center hidden-xs-down">¿Necesitas ayuda? Llámanos</h3>
+					<ul class="list-contacts">
+						<li class="list-contacts__item">Santiago: <a href="tel:+56987654321"><strong>+56 987654321</strong></a></li>
+						<li class="list-contacts__item">Concepción: <a href="tel:+56987654321"><strong>+56 987654321</strong></a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-22 offset-sm-1">
+								<div class="modal-header">
+									<button type="button" class="btn btn-link close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true"><span class="udd-tdr-icon-remove"></span></span>
+									</button>
+									<h2 class="modal-title" id="myModalLabel">Introducción a la sustentabilidad | Cátedra-Sección 1</h2>
+									<div class="alert alert-danger alert-sm">
+										<span class="alert-heading alert-heading-sm">22 cupos disponibles</span>
+									</div>
+								</div>
+								<div class="modal-body">
+									<table class="table table-sm table-hover">
+										<thead class="hidden-sm-down">
+											<tr>
+												<th class="text-xs-center">Lista</th>
+												<th>Nombre Alumno</th>
+												<th>P. Académica</th>
+												<th>Estado</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="subject__tr-data subject__tr-data-status-registered">
+												<th class="text-xs-center" scope="row">1</th>
+												<td class="subject__person-name">
+													Josefina Cifuentes Maldonado
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Inscrito</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Inscrito</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-registered">
+												<th class="text-xs-center" scope="row">2</th>
+												<td class="subject__person-name">
+													Pablo Pereira Soto
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Inscrito</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Inscrito</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-registered">
+												<th class="text-xs-center" scope="row">3</th>
+												<td class="subject__person-name">
+													María José Morales
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Inscrito</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Inscrito</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-registered">
+												<th class="text-xs-center" scope="row">4</th>
+												<td class="subject__person-name">
+													Josefina Cifuentes Maldonado
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Inscrito</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Inscrito</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-registered">
+												<th class="text-xs-center" scope="row">5</th>
+												<td class="subject__person-name">
+													Pablo Pereira Soto
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Inscrito</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Inscrito</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-registered">
+												<th class="text-xs-center" scope="row">6</th>
+												<td class="subject__person-name">
+													María José Morales
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Inscrito</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Inscrito</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-registered selected">
+												<th class="text-xs-center" scope="row">7</th>
+												<td class="subject__person-name">
+													Pedro Jiménez Pereira
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Inscrito</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Inscrito</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-requested">
+												<th class="text-xs-center" scope="row">8</th>
+												<td class="subject__person-name">
+													Pablo Pereira Soto
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Solicitado</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Solicitado</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-postulate">
+												<th class="text-xs-center" scope="row">9</th>
+												<td class="subject__person-name">
+													María José Morales
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Postulado</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Postulado</td>
+											</tr>
+											<tr class="subject__tr-data subject__tr-data-status-postulate">
+												<th class="text-xs-center" scope="row">10</th>
+												<td class="subject__person-name">
+													Pedro Jiménez Pereira
+													<span class="subject__data-table-mobile hidden-sm-up">
+														Prioridad: 0.75 | Estado <span class="subject__inscription-td">Postulado</span>
+													</span>
+												</td>
+												<td class="hidden-sm-down">0.75</td>
+												<td class="subject__inscription-td hidden-sm-down">Postulado</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+					-->
+				</div>
+			</div>
+		</div>
+		<!-- scripts -->
+		<!-- jQuery first, then Tether, then Bootstrap JS. -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="assets/js/scripts.js"></script>
+	</body>
+</html>

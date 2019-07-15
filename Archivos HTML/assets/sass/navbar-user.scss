@@ -1,0 +1,113 @@
+// Navbar user
+
+.navbar-user {
+	@extend .pull-sm-right;
+	font-size: 15px;
+	color: #fff;
+	a {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+.navbar-user__data {
+	margin-right: 1rem;
+	text-align: right;
+	@extend .pull-sm-right;
+}
+.navbar-user__main-data {
+	margin-bottom: 0;
+	font-weight: 700;
+}
+.navbar-user__main-data ul, .navbar-user__academic-data ul {
+	margin-bottom: 0;
+}
+.navbar-user__career, .navbar-user__career-id, .navbar-user__academic-data li {
+	display: inline-block;
+	margin-left: 0; //.5rem;
+	padding-left: .5rem;
+	box-shadow: -4px 0 0 -3px #fff;
+}
+.navbar-user__academic-data li:first-child {
+	box-shadow: none;
+}
+.navbar-user__academic-data {
+	margin-bottom: 0;
+	font-size: 13px;
+}
+.navbar-user__logout {
+	@extend .btn;
+	@extend .pull-sm-right;
+	position: relative;
+	top: 2px;
+	color: #fff;
+	border-color: #fff;
+	text-decoration: none !important;
+	&:hover {
+		color: #fff;
+	}
+}
+
+// Menu móvil colapsable de persona
+
+.navbar-user--mobile {
+	@include gradient-radial(transparent, $brand-primary-dark);
+	border-bottom: 1px solid #fff;
+	position: relative;
+	padding: 15px;
+}
+.navbar-user--mobile .navbar-user__logout {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	padding: 0.2rem 0.8rem;
+	z-index: 2;
+}
+.navbar-user--mobile .navbar-user__name {
+	display: block;
+	font-size: 17px;
+	font-weight: bold;
+	padding-right: 70px;
+	z-index: 1;
+}
+.user-career {
+	position: relative;
+	background-color: #fff;
+	margin: 10px 0;
+	padding: 10px 125px 10px 10px;
+}
+.user-career a {
+	color: $brand-primary;
+}
+.user-career .navbar-user__career {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.navbar-user__change-career {
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+#user-mobile {
+	//text-decoration: none;
+}
+#navbar-user-mobile {
+	display: none;
+}
+#mobile-stage-nav {
+	position: absolute;
+	top: 0;
+	right: 15px;
+	padding: 0.5rem 2rem 0.5rem 0.5rem;
+	font-weight: bold;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.navbar-user--mobile .navbar-user__logout, #user-mobile {
+				text-decoration: none;
+			}
+		}
+	}
+}

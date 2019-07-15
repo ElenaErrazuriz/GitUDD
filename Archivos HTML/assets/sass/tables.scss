@@ -1,0 +1,87 @@
+// Tablas
+
+.table {
+	border: 1px solid $gray-lighter;
+	font-size: 14px;
+}
+
+.table thead th {
+	border-bottom: 1px solid $gray-lighter;
+	background-color: #eee;
+}
+
+.subject__person-name {
+	font-weight: bold;
+}
+
+.subject__tr-data {
+
+}
+
+.subject__inscription-td {
+	font-weight: bold;
+}
+
+.subject__tr-data-status-registered {
+	&:hover, &.selected {
+		background-color: $status-registered-color !important;
+		color: #fff;
+		.subject__inscription-td {
+			color: #fff;
+		}
+	}
+	.subject__inscription-td {
+		color: $status-registered-color;
+	}
+}
+
+.subject__tr-data-status-requested {
+	&:hover, &.selected {
+		background-color: $status-requested-color !important;
+		color: #fff;
+		.subject__inscription-td {
+			color: #fff;
+		}
+	}
+	.subject__inscription-td {
+		color: $status-requested-color;
+	}
+}
+
+.subject__tr-data-status-required {
+	&:hover, &.selected {
+		background-color: $status-required-color !important;
+		color: #fff;
+		.subject__inscription-td {
+			color: #fff;
+		}
+	}
+	.subject__inscription-td {
+		color: $status-required-color;
+	}
+}
+
+.subject__tr-data-status-postulate {
+	&:hover, &.selected {
+		background-color: $status-postulate-color !important;
+		color: #fff;
+		.subject__inscription-td {
+			color: #fff;
+		}
+	}
+	.subject__inscription-td {
+		color: $status-postulate-color;
+	}
+}
+
+/* mobile */
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.table {
+				border-left: none;
+				border-right: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,548 @@
+// Subject: objeto "Asignatura"
+//
+// Se utiliza como dependencia el componente .list-group de bootstrap,
+// sólo para el estilo del bloque, bordes y backgrounds. Los elementos internos están personalizados
+
+// Listado de asignaturas.
+// Extiende .list-group
+.subjects {
+	@extend .list-group;
+}
+
+ol.subjects {
+	counter-reset:li;
+	li {
+		position: relative;
+		&::before {
+			content:counter(li)"º";
+			counter-increment:li;
+			position:absolute;
+			font-weight: bold;
+			top: 10px;
+			left: -30px;
+			color: $brand-primary;
+		}
+	}
+}
+
+// Grupos de ramos de "Puedes Postular"
+.subjects__can-postulate {
+
+}
+
+.subjects + .stage-header__title, .stage-header__title + .subjects {
+	margin-top: 20px;
+}
+
+.subjects-group {
+	margin-bottom: 5px;
+	.form-check {
+		margin-bottom: 0;
+	}
+	.form-check + .form-check {
+		margin-top: -.45rem;
+	}
+}
+
+// Asignatura
+// Extiende  .list-group-item
+.subject {
+	@extend .list-group-item;
+}
+
+// Contenedor interno para simular grilla con tablas
+.subject__wrap {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+// Cabecera de la Asignatura
+.subject__header {
+	display: table-cell;
+	width: 50%;
+}
+.subject__header--inscription {
+	width: 80%;
+	margin-bottom: 10px;
+	display: block;
+}
+.subject__header--inscription .subject__status {
+	&::before {
+		display: none;
+	}
+}
+
+// Código de la Asignatura
+.subject__code, .subject__pending {
+	display: inline-block;
+	margin-right: 3px;
+	padding-left: 3px;
+	padding-right: 3px;
+	font-size: $font-size-xs;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: 1px solid;
+}
+.subject__pending {
+	margin-right: 0;
+	margin-left: 3px;
+}
+
+// Créditos de la Asignatura
+.subject__credits {
+	display: inline-block;
+	font-size: $font-size-sm;
+	font-weight: normal;
+	color: $gray-dark;
+}
+
+// Nombre de la Asignatura
+.subject__name {
+	margin-top: 5px;
+	.visible-alert {
+		display: none;
+	}
+}
+
+.subject__more-info {
+	display: inline-block;
+	font-size: 14px;
+	color: $gray-dark;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.subject__name + .subject__more-info {
+	display: inline;
+}
+
+// Inscripción de la asignatura
+.subject--inscription, .subject--resume-postulate {
+	span, h3 {
+		display: inline;
+	}
+}
+.subject--inscription.subject--status-registered {
+	background-color: #f5ffed; //$status-registered-color;
+	/*
+	border: none;
+	outline-style: solid;
+    outline-color: $status-registered-color;
+    outline-width: 2px;
+    */
+    border: 2px solid $status-registered-color;
+    z-index: 2;
+}
+.subject--inscription.subject--status-requested {
+	background-color: #f8f4ff;
+}
+
+// Descripción de la Asignatura en caso de que lo requiera
+.subject--inscription .subject__description, .subject--resume-postulate .subject__description{
+	font-size: 14px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.subject--resume-postulate {
+	margin-bottom: 10px;
+}
+
+.subject--resume-postulate.subject--status-registered {
+	border: 1px solid $status-registered-color;
+	background-color: #fff;
+}
+.subject--resume-postulate.subject--status-requested {
+	border: 1px solid $status-requested-color;
+	background-color: #fff;
+}
+.subject--resume-postulate.subject--status-postulate {
+	border: 1px solid $status-postulate-color;
+	background-color: #fff;
+}
+.subject--resume-postulate.subject--status-required {
+	border: 1px solid $status-required-color;
+	background-color: #fff;
+}
+.subject--resume-postulate.subject--status-open {
+	border: 1px solid $status-open-color;
+	background-color: #fff;
+}
+
+// Datos de Horario, ubicación y profesor
+.subject__data-place {
+	font-size: 14px;
+	margin-bottom: 5px;
+	position: relative;
+}
+.subject__data-place p {
+	margin-bottom: 0;
+}
+
+// Archivo con más información
+.subject__file {
+	font-size: $font-size-sm;
+	text-decoration: underline;
+	white-space: nowrap;
+	color: $gray-dark;
+}
+
+// Bloque de estado de la postulación de la Asignatura
+.subject__section {
+	display: table-cell;
+	width: 50%;
+	margin-top: 5px;
+	padding-right: 25px;
+	vertical-align: middle;
+	line-height: 1.25;
+	text-align: right;
+	color: $gray-dark;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.subject__section-quotas {
+	padding: 0;
+	display: block;
+	text-align: right;
+	width: auto;
+	position: absolute;
+	top: 1rem; //15px;
+	right: 1.25rem; //22px;
+	.subject__status {
+		&::before {
+			display: none;
+		}
+	}
+	.subject__section-name {
+		text-align: right;
+		font-size: 17px;
+		font-weight: bold;
+	}
+}
+
+.subject__section-quotas-counter {
+	color: $gray-dark;
+	//text-decoration: underline;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 5px;
+}
+
+.subject__section-quotas-counter .btn-quotas {
+	color: $gray-dark;
+	text-decoration: underline;
+}
+
+.subject--inscription {
+	padding: 1rem  1.25rem;
+	.subject__section-quotas::before {
+		display: none !important;
+	}
+}
+
+.subject--inscription-label {
+	padding-left: 60px;
+	z-index: 0;
+}
+.subject--inscription-combobox {
+	padding-left: 85px;
+}
+
+.subject--inscription-label.checked, .subject--inscription-label.selected {
+	border-color: transparent;
+	background-color: #f2f9ff;
+	/*
+	outline-width: 2px;
+	outline-color: $brand-primary;
+	outline-style: solid;
+	*/
+	border: 2px solid $brand-primary;
+	z-index: 1;
+}
+
+.subject--inscription-label.subject--status-registered.checked, .subject--inscription-label.c.selected {
+	border: 2px solid $status-registered-color !important;
+	background-color: $status-registered-bg !important;
+}
+
+.subject--inscription-label.subject--registered.checked {
+	//outline-color: $status-registered-color;
+	border: 2px solid $status-registered-color;
+	background-color: $status-registered-bg;
+	.subject__status {
+		color: $status-registered-color;
+	}
+}
+
+.subject--inscription-label.selected {
+	.btn-group--subject-inscription {
+		border-color: $brand-primary;
+		background-color: #fff;
+	}
+}
+
+.subject--inscription-label.subject--status-registered {
+	.btn-group--subject-inscription {
+		border-color: $status-registered-color;
+		background-color: #fff;
+	}
+}
+
+.subject-group-combinate--inscription-group {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.subject-group-combinate--inscription {
+	position: relative;
+	border-top: 1px solid $gray-lighter;
+	list-style: none;
+	margin-top: 10px;
+	padding-top: 10px;
+	&:first-child {
+		border-top: none;
+		padding-top: 0;
+	}
+}
+
+.subject-group-combinate--inscription .subject__section-quotas {
+	top: 10px;
+	right: 10px;
+}
+.subject-group-combinate--inscription:first-child .subject__section-quotas {
+	top: 0;
+}
+
+// Estado de la Asignatura
+.subject__status {
+	display: block;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+// Estado de la Asignatura
+.subject__response {
+	display: table-cell;
+	vertical-align: middle;
+}
+.subject__response.btn.btn-link {
+	color: $light-blue;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// Nombre de la sección escogida para la Asignatura
+.subject__section-name {
+	display: block;
+	margin-top: 3px;
+	overflow: hidden;
+	font-size: $font-size-sm;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Indicador tipo flecha
+.subject__section::before {
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	margin-top: -17px;
+	font-size: 30px;
+	//@extend .icon-caret-right;
+	font-family: udd-tdr-icons;
+	content: '\e904';
+}
+
+// Estados de la asignatura
+.subject--status-registered, .subject--status-requested, .subject--status-postulate, .subject--status-required, .subject--status-open {
+	.subject__section {
+		color: $status-registered-color;
+	}
+	.subject__status {
+		color: $status-registered-color;
+		margin-right: 5px;
+	}
+}
+.subject--status-registered {
+	.subject__status {
+		&::before {
+			position: absolute; //relative;
+			top: 20px;
+			margin-left: -20px;
+			//left: -3px;
+			//@extend .icon-ok-circle;
+			font-family: udd-tdr-icons;
+			content: '\e908';
+		}
+	}
+}
+
+.subject--status-requested {
+	.subject__section, .subject__status {
+		color: $status-requested-color;
+	}
+}
+.subject--status-postulate {
+	.subject__section, .subject__status {
+		color: $status-postulate-color;
+	}
+}
+.subject--status-required {
+	background-color: $status-required-bg;
+	.subject__section {
+		color: $status-required-color;
+	}
+	.subject__status {
+		font-style: italic;
+		color: $status-required-color;
+	}
+}
+.subject--status-open {
+	.subject__section {
+		color: $status-open-color;
+	}
+	.subject__status {
+		font-weight: normal;
+		font-style: italic;
+		color: $status-open-color;
+	}
+}
+.subject--status-poll {
+	.subject__name, .subject__person {
+		margin-bottom: 5px;
+	}
+	.subject__header {
+		width: 70%;
+	}
+}
+
+// Not logged
+.subject-panel {
+	margin-bottom: 40px;
+	padding-top: $spacer * 2;
+}
+
+.subject__data-table-mobile {
+	font-weight: normal;
+	display: block;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.subject {
+				border-left: none !important;
+    			border-right: none !important;
+			}
+			.subject__header {
+				width: 55%;
+			}
+			.subject__header.subject__header--inscription {
+				width: 100%;
+			}
+			.subject__section {
+				padding-left: 10%;
+			}
+			.subject__section::before {
+				right: -2px;
+			}
+			.subject__file {
+				display: block;
+				text-indent: -1000000px;
+				&::before {
+					position: absolute;
+					display: block;
+					margin-top: 2px;
+					text-indent: 0;
+					content: attr(data-title-xs);
+				}
+			}
+			.subject--status-registered {
+				.subject__status {
+					&::before {
+						top: 15px;
+					}
+				}
+			}
+			.subject__more-info {
+				display: block;
+				margin: 5px 0;
+			}
+			.subject--status-poll {
+				position: relative;
+				.subject__header {
+					width: 80%;
+				}
+				.subject__response {
+					position: absolute;
+					right: 15px;
+    				top: 8px;
+				}
+			}
+			.subject--inscription h3 {
+				display: block;
+			}
+			.subject__data-mobile {
+				position: relative;
+				//margin-top: -32px;
+				width: 100%;
+			}
+			.subject__data-mobile .btn-link {
+				position: absolute;
+				top: -25px;
+				right: 0;
+				padding:0;
+			}
+			.btn-link-subject-data-place {
+				.open-target {
+					display: block;
+				}
+				.hide-target {
+					display: none;
+				}
+			}
+			.btn-link-subject-data-place.active {
+				.open-target {
+					display: none;
+				}
+				.hide-target {
+					display: block;
+					margin-top: -5px;
+				}
+			}
+			.subject__wrap {
+				position: relative;
+			}
+			.subject__data-mobile-content {
+				display: none;
+				border-top: 1px solid $gray-lighter;
+				margin-top: 10px;
+				padding-top: 10px;
+				color: #606060;
+			}
+			.subject__data-mobile-content span {
+				display: block;
+				margin: 0;
+			}
+			.subject--inscription-label.checked, .subject--inscription-label.selected {
+				border-color: $brand-primary;
+				border-width: 2px;
+				border-left: none;
+				border-right: none;
+				outline-width: none;
+				outline-color: none;
+				outline-style: none;
+			}
+			.subjects + .stage-header__title, .stage-header__title + .subjects {
+				margin-top: 10px;
+			}
+			.subject--inscription-combobox {
+				padding-left: 65px !important;
+			}
+		}
+	}
+}
+

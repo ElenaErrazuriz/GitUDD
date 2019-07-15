@@ -1,0 +1,41 @@
+/*!
+ * Toma de Ramos - UDD
+ * Author: AyerViernes S.A. | Basilio Cáceres <bcaceres@ayerviernes.com>
+ * Author URL: http://ayerviernes.com
+ */
+
+// Bootstrap
+@import "custom";
+@import "bootstrap";
+
+// Base
+@import "logos";
+@import "icons";
+@import "type";
+@import "list-contacts";
+@import "buttons";
+@import "alert";
+@import "shadow-bg";
+@import "tables";
+@import "forms";
+@import "select";
+@import "navs";
+
+// Navigation
+@import "header";
+@import "navbar-user";
+@import "btn-group";
+
+// Sections
+@import "stage-header";
+@import "subject";
+
+// Modal
+@import "modal";
+@import "popover";
+
+// Special tables
+@import "schedule-table";
+
+// General
+@import "general";

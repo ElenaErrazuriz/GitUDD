@@ -1,0 +1,110 @@
+// Modales
+
+.modal-content {
+	background-color: transparent;
+	border: none;
+}
+
+.modal-body {
+  padding-top: 0;
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-header .alert {
+	margin: 10px 0 0;
+}
+
+.modal-header .close {
+	float: right;
+	font-size: 27px;
+	text-decoration: none;
+	padding: 0;
+	color: $brand-primary;
+	margin-top: -50px;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal-gray {
+	background-color: $body-bg;
+	padding: 30px 0;
+	border-top: 3px solid $gray-lighter;
+}
+
+.modal-dialog-no-bottom {
+	margin-bottom: 0;
+}
+
+// Modal background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-bg;
+  background-color: #fff; //$modal-backdrop-bg;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.in { opacity: 0.98; //$modal-backdrop-opacity;
+  }
+}
+
+
+
+// Scale up the modal
+@include media-breakpoint-up(sm) {
+  // Automatically set modal's width for larger viewports
+  .modal-dialog {
+    max-width: 100%; //$modal-md;
+    //margin: $modal-dialog-sm-up-margin-y auto;
+    padding-top: 50px;
+  }
+
+  .modal-sm { max-width: $modal-sm; }
+}
+
+@include media-breakpoint-up(lg) {
+  .modal-lg { max-width: $modal-lg; }
+}
+
+
+/* mobile */
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.modal-dialog {
+				margin: 40px 0 0;
+			}
+			.modal-body {
+				padding: 0 0 15px;
+			}
+			.modal-body.modal-body-padding {
+				padding: 0 15px 15px;
+			}
+			.modal-content .container {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			.modal-header .close {
+				font-size: 21px;
+				margin-top: -40px;
+			}
+			.modal-gray {
+				border-top: none;
+				padding: 20px 0;
+				.stage-header__title {
+					font-weight: normal;
+					font-size: 14px;
+					padding: 0 20px;
+				}
+			}
+		}
+	}
+}

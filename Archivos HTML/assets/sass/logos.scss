@@ -1,0 +1,30 @@
+// Logos
+//
+// * Utilizar siempre logos SVG
+
+@mixin logo {
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.logo-udd {
+	@include logo;
+	@include size(190px, 28px);
+	background-image: url(../img/logo-udd.svg);
+}
+.logo-udd--blue {
+	@include logo;
+	@include size(190px, 28px);
+	background-image: url(../img/logo-udd-blue.svg);
+}
+/* mobile */
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.logo-udd, .logo-udd--blue {
+				background-size: cover;
+				width: 84px;
+			}
+		}
+	}
+}

@@ -1,0 +1,67 @@
+// popover ramos horario
+
+.popover {
+	width: 180px;
+	//border: 3px solid $gray-lighter;
+	border: none;
+}
+.popover.popover-right, .popover.bs-tether-element-attached-left {
+	margin-left: -160px;
+}
+.popover-title {
+	background: transparent;
+	border: none;
+	padding: 0;
+}
+.popover-content {
+	padding: 0;
+	border: none;
+}
+.popover-visible {
+	display: none;
+}
+.popover .popover-visible {
+	display: block;
+}
+.popover .title-td-hour {
+	display: block;
+	background-color: $body-bg;
+	padding: 5px 15px 3px;
+	font-size: 14px;
+	color: $gray-dark;
+	font-weight: bold;
+	position: absolute;
+    top: 4px;
+    right: 4px;
+    left: 4px;
+}
+.popover .td-popover {
+	border: 3px solid $gray-lighter;
+	padding: 9px 15px;
+	display: block;
+}
+.popover .title-td-section {
+	font-weight: bold;
+}
+.td-popover.td-popover--postulate {
+	border-color: $status-postulate-color;
+	.title-td-data-status {
+		color: $status-postulate-color;
+	}
+}
+.td-popover.td-popover--registered {
+	border-color: $status-registered-color;
+	.title-td-data-status {
+		color: $status-registered-color;
+	}
+}
+.popover .title-td-data-status {
+	margin-top: 30px;
+}
+.popover .title-td-subject {
+	//margin-top: 5px;
+	font-weight: bold;
+	text-overflow: none;
+	overflow: visible;
+	white-space: normal;
+}

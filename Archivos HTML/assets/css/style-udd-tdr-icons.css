@@ -1,0 +1,63 @@
+@font-face {
+  font-family: udd-tdr-icons;
+  src: url('../font/fonts/udd-tdr-icons.eot?jgldt7');
+  src: url('../font/fonts/udd-tdr-icons.eot?jgldt7#iefix') format('embedded-opentype'), url('../font/fonts/udd-tdr-icons.ttf?jgldt7') format('truetype'), url('../font/fonts/udd-tdr-icons.woff?jgldt7') format('woff'), url('../font/fonts/udd-tdr-icons.svg?jgldt7#udd-tdr-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='udd-tdr-icon-'], [class*='udd-tdr-icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: udd-tdr-icons !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.udd-tdr-icon-alert::before {
+  content: "\e900";
+}
+.udd-tdr-icon-calendar::before {
+  content: "\e901";
+}
+.udd-tdr-icon-caret-down::before {
+  content: "\e902";
+}
+.udd-tdr-icon-caret-left::before {
+  content: "\e903";
+}
+.udd-tdr-icon-caret-right::before {
+  content: "\e904";
+}
+.udd-tdr-icon-caret-up::before {
+  content: "\e905";
+}
+.udd-tdr-icon-file::before {
+  content: "\e906";
+}
+.udd-tdr-icon-more::before {
+  content: "\e907";
+}
+.udd-tdr-icon-ok-circle::before {
+  content: "\e908";
+}
+.udd-tdr-icon-ok::before {
+  content: "\e909";
+}
+.udd-tdr-icon-poll::before {
+  content: "\e90a";
+}
+.udd-tdr-icon-remove::before {
+  content: "\e90b";
+}
+.udd-tdr-icon-user::before {
+  content: "\e90c";
+}
+

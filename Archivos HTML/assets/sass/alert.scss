@@ -1,0 +1,183 @@
+// Alerts
+//
+// * Utilizar siempre logos SVG
+
+
+.alert {
+  padding: 40px;
+}
+
+.alert-sm {
+  padding: 10px 20px;
+}
+
+.alert--with-head-icon {
+	padding: 20px 40px;
+}
+
+.alert-heading {
+	font-size: 26px;
+	font-weight: bold;
+}
+.alert-heading-sm {
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.full-alert {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+.bg-blue {
+	@include gradient-radial($inner-color: #115d9a, $outer-color: $brand-primary-dark);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	opacity: 0.6;
+}
+
+.full-alert .alert-changes-success, .full-alert .alert-descrinscription-subject {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -99px;
+	margin-left: -150px;
+	z-index: 1001;
+}
+
+.full-alert .alert-descrinscription-subject {
+	margin-top: -130px;
+	margin-left: -230px;
+}
+
+.alert--subject-selected  {
+	min-height: 90px;
+	padding: 20px;
+	padding-right: 50%;
+	position: relative;
+	width: 100%;
+	display: table;
+}
+
+.alert--subject-selected-message {
+	display: table-cell;
+	vertical-align: middle;
+	.visible-alert {
+		display: inline;
+		.subject__section-name {
+			display: inline;
+			font-size: 1rem;
+		}
+	}
+}
+
+.alert--subject-selected-buttons {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	.btn-lg {
+		font-size: 16px;
+	}
+	.btn-primary--light {
+		float: right;
+	}
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-success {
+  //@include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+.alert-info {
+  	background-color: $alert-info-bg;
+	border: 1px solid $alert-info-border-color;
+	color: $gray-dark;
+}
+.alert-warning {
+  //@include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+.alert-danger {
+	background-color: $alert-danger-bg;
+	border: 1px dashed $alert-danger-border-color;
+	color: $gray-dark;
+}
+.alert-danger .alert-heading {
+	color: $alert-danger-border-color;
+}
+.alert-danger .icon-alert, .alert-danger .udd-tdr-icon-alert {
+	color: $alert-danger-border-color;
+	font-size: 46px;
+	display: block;
+    margin-bottom: 10px;
+}
+
+// Alerta cambios guardados
+
+.alert-changes-success {
+	color: #fff;
+	@include gradient-radial($inner-color: #115d9a, $outer-color: $brand-primary-dark);
+	border: none;
+	min-height: 188px;
+	width: 300px;
+	opacity: 0.93;
+}
+
+// Alerta desinscripción ramo
+
+.alert-descrinscription-subject {
+	width: 460px;
+	min-height: 260px;
+	background-color: #fff;
+}
+
+.alert-descrinscription-subject.alert-short {
+	min-height: 160px;
+}
+
+.alert-changes-success .alert-heading {
+	font-size: 22px;
+}
+.alert-changes-success .icon-ok, .alert-changes-success .udd-tdr-icon-ok {
+	font-size: 46px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	display: block;
+}
+/* mobile */
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.alert-heading {
+				font-size: 19px;
+			}
+			.alert--subject-selected-buttons {
+				margin-top: 5px;
+				position: relative;
+				display: block;
+				right: auto;
+				top: auto;
+				.btn-lg {
+					font-size: 14px;
+					padding: 0.65rem;
+				}
+				.btn-primary--light {
+					float: none;
+				}
+			}
+			.full-alert .alert-descrinscription-subject {
+				width: 260px;
+				margin-left: -130px;
+			}
+		}
+	}
+}

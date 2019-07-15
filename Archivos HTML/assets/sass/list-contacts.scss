@@ -1,0 +1,52 @@
+// List Contacts
+//
+// Listado de teléfonos por sede
+
+.list-contacts {
+	@extend .list-inline;
+	text-align: center;
+}
+.list-contacts__item {
+	@extend .list-inline-item;
+	position: relative;
+	margin-left: $list-inline-padding + 5px;
+	padding-left: $list-inline-padding + 5px;
+	font-size: $font-size-sm;
+	color: $gray-dark;
+	& a {
+		color: $gray-dark;
+	}
+	&::before {
+		position: absolute;
+		display: block;
+		top: 2px;
+		left: 0;
+		@include size(1px, 80%);
+		background-color: $gray-dark;
+		content: '';
+	}
+	&:first-child {
+		&::before {
+			display: none;
+		}
+	}
+}
+
+/* mobile */
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.list-contacts__item {
+				font-size: 14px;
+				margin-bottom: 10px;
+				margin-left: 0;
+				padding-left: 0;
+				margin-right: 0 !important;
+				display: block;
+				&::before {
+					display: none;
+				}
+			}
+		}
+	}
+}

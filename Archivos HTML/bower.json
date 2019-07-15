@@ -1,0 +1,21 @@
+{
+  "name": "Toma de Ramos",
+  "description": "Templates for project \"Toma de ramos UDD\"",
+  "main": "index.html",
+  "authors": [
+    "AyerViernes <ayer@ayerviernes.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/AyerViernes/tomaderamos",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.3"
+  }
+}

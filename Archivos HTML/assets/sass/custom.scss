@@ -1,0 +1,67 @@
+// Custom - Variables personalizadas
+//
+// Se utiliza para sobreescribir las variables predefinidas de bootstrap
+
+// Rasgos principales de bootstrap
+$enable-rounded: false;
+
+// Colores
+$brand-primary:      #014c8f;
+$brand-success:      #a02c58;
+$brand-primary-dark: #01315e;
+
+$gray-dark:          #404040;
+$gray-lighter: 		 #d5d5d5;
+
+$light-blue:		 #127fff;
+
+// Colores de ramos
+$status-registered-color: #3a8b00;
+$status-requested-color:  #4e00d2; //$brand-primary;
+$status-postulate-color:  $brand-primary; //#4e00d2;
+$status-required-color:   #fb4700;
+$status-open-color:       $gray-dark;
+
+$status-registered-bg: #f5ffed;
+$status-requested-bg:  #f8f4ff; //#f2f9ff;
+$status-postulate-bg:  #f2f9ff; //#f8f4ff;
+$status-required-bg:   #fff8f5;
+$status-open-bg:       $gray-dark;
+
+// Tipografías
+$font-family-sans-serif: "Source Sans Pro", sans-serif;
+$font-family-h1:         "Fira Sans", sans-serif;
+
+$font-size-h1: 1.625rem;
+$font-size-h2: 1.3125rem !default;
+$font-size-h3: 1.0625rem !default;
+$font-size-h4: 1rem !default;
+$font-size-h5: 1rem !default;
+$font-size-h6: 1rem !default;
+
+// Fondo
+$body-bg: #eee;
+$body-bg--not-logued: #fff;
+
+// Cantidad de columnas
+$grid-columns: 24 !default;
+
+// Se utilizan para los listados de ramos y secciones
+$list-group-item-padding-y: .8125rem;
+
+// Alertas
+$alert-info-bg: #fff;
+$alert-info-border-color: $gray-lighter;
+$alert-danger-bg: #fff8f5;
+$alert-danger-border-color: #fb4700;
+
+// Modales
+$modal-lg: 100%;
+$modal-sm: 100%;
+$modal-xs: 100%;
+
+// Bordes redondos
+$border-radius: 10px;
+
+// Tabs 
+$nav-tabs-border-width: 3px;

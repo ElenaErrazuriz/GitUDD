@@ -1,0 +1,52 @@
+// Formularios especiales
+
+.form-check-label__subject-label {
+	padding-left: 0;
+}
+
+.form-check-input__subject-input {
+	margin-left: -2.25rem;
+}
+.form-check-label__subject-label input[type="radio"]{
+	position: absolute;
+	//visibility: hidden;
+}
+.form-check-label__subject-label input[type="radio"]::before {
+	position: absolute;
+	content: '';
+	height: 20px;
+	width: 20px;
+	background-color: #fff;
+	border: 3px solid $gray-lighter;
+	display: block;
+	top: 0;
+	left: -3px;
+	border-radius: $border-radius;
+}
+.form-check-label__subject-label input[type="radio"]:checked::before {
+	position: absolute;
+	content: '';
+	height: 20px;
+	width: 20px;
+	background-color: #fff;
+	border: 6px solid $brand-primary !important;
+	display: block;
+	top: 0;
+	left: -3px;
+	border-radius: $border-radius;
+}
+.form-control--subject-inscription {
+	position: absolute;
+	//top: 0;
+	left: 15px;
+	//width: 36px;
+	height: 20px !important;
+	border-radius: 0;
+	background: transparent;
+	//border: none;
+	border: 2px solid $gray-lighter;
+	-webkit-appearance:none;
+}
+.form-check-label__subject-label .subject--registered input[type="radio"]:checked::before {
+	border: 6px solid $status-registered-color !important;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>user</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Estilos" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Íconos" transform="translate(-180.000000, -220.000000)" fill="#000000">
+            <path d="M200.001473,220 C191.533132,220 185.894828,228.235096 193.781612,242.758472 C196.443713,247.659722 190.908036,248.816617 185.297722,250.110348 C179.569229,251.432068 180.00773,254.451811 180.00773,259.934619 L219.992107,259.934619 C219.992107,254.451811 220.433717,251.432068 214.702115,250.110348 C208.973623,248.788627 203.640092,247.631733 206.221334,242.758472 C214.086349,227.930323 208.304988,220 200.001473,220 Z" id="user"></path>
+        </g>
+    </g>
+</svg>

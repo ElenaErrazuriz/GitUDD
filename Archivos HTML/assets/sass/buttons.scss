@@ -1,0 +1,118 @@
+// Buttons
+
+// Subject: objeto "Asignatura"
+
+.btn-subject {
+	position: relative;
+	text-align: left;
+	padding: $btn-padding-x * 1.1;
+	font-size: 17px;
+	margin-bottom: 20px;
+}
+
+.btn-subject::before {
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	margin-top: -14px;
+	font-size: 24px;
+	//@extend .icon-caret-right;
+	font-family: udd-tdr-icons;
+	content: '\e904';
+}
+
+.btn-link {
+	font-weight: bold;
+	color: $gray-dark;
+	text-decoration: underline;
+}
+.btn-link--light {
+	color: $light-blue;
+}
+.btn-primary--light {
+	background-color: $light-blue;
+	border-color: $light-blue;
+}
+.btn-outline-primary {
+	background-color: #fff;
+}
+.btn-primary-icon .udd-tdr-icon-caret-down {
+	/*
+	-ms-transform: rotate(-270deg);
+	-webkit-transform: rotate(-270deg);
+	transform: rotate(-270deg);
+	*/
+	position: absolute;
+	right: 8px;
+	top: 10px;
+}
+.btn-desinscription {
+	position: absolute;
+	right: 0;
+	top: -8px;
+}
+.btn-desinscription-subject {
+	color: #d0021b;
+	padding-left: 25px;
+	padding-right: 0;
+	position: relative;
+	padding-bottom: 0;
+	&::before {
+		position: absolute;
+		left: 0;
+		font-size: 9px;
+		border: 2px solid #d0021b;
+		border-radius: 30px;
+		padding: 3px 4px 2px 3px;
+		top: 9px;
+		background-color: #fff;
+		font-family: udd-tdr-icons;
+		content: '\e90b';
+	}
+	&:hover {
+		/*
+		.icon-remove {
+			border-color: $gray-dark;
+		}
+		*/
+		&::before {
+			border: 2px solid $gray-dark;
+			border-radius: 30px;
+			background-color: #fff;
+		}
+	}
+}
+.btn-back {
+	text-decoration: none;
+	color: $brand-primary;
+	position: relative;
+}
+
+.btn-back::before {
+	//@extend .icon-caret-right;
+	//-ms-transform: rotate(-180deg);   //rotate(-90deg);
+	//-webkit-transform: rotate(-180deg);   //rotate(-90deg); /* Safari */
+	//transform: rotate(-180deg);
+	position: absolute;
+	left: -15px;
+	font-size: 28px;
+	top: -7px;
+	font-family: udd-tdr-icons;
+	content: '\e903';
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@if ( $breakpoint == 'xs' ) {
+		@include media-breakpoint-down($breakpoint) {
+			.btn-desinscription {
+				position: relative;
+				right: auto;
+				top: auto;
+				display: block;
+				text-align: left;
+				margin-bottom: 10px;
+				padding: 10px 0;
+			}
+		}
+	}
+}
