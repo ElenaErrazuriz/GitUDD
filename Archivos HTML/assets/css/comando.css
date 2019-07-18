@@ -5,3 +5,12 @@
 .horarioTable{
     margin-left:80px;
 }
+
+#draggable { 
+	width: 250px; 
+	padding: 0.5em; 
+}
+
+.list-horarios{
+	z-index: 100px;
+}
