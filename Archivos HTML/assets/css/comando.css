@@ -5,12 +5,29 @@
 .horarioTable{
     margin-left:80px;
 }
-
-#draggable { 
-	width: 250px; 
-	padding: 0.5em; 
+.horario2{
+	height:80px;
+	width: 118px;
+	margin:20px;
 }
-
+.no-bullets {
+    list-style-type: none;
+}
+#draggable { 
+	width: 100px; 
+	padding: 0.5em;
+}
+.horarios{
+	height: 731px;
+	width: 300px;
+	background-color: white;
+	margin-left: 5%; 
+	color:#606060;
+	text-align: center;
+	padding:4.8px;
+}
 .list-horarios{
 	z-index: 100px;
+	margin-right: 150px;
+	height: 500px;
 }

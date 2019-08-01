@@ -12,8 +12,38 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="stylesheet" href="assets/css/comando.css">
 
-		
-		
+		<!----------------------------------------------------------------------
+		Agregado por dante jeje
+		https://jqueryui.com/draggable/#sortable
+		---------------------------------------------------------------------->
+		  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#sortable" ).sortable({
+      revert: true
+    });
+    $( "#sortable2" ).sortable({
+      revert: true
+    });
+    $( "#draggable" ).draggable({
+      connectToSortable: "#sortable",
+      revert: "invalid"
+    });
+    $( "#draggable2" ).draggable({
+      connectToSortable: "#sortable2",
+      revert: "invalid"
+    });
+    $( "ul, li, tr, td" ).disableSelection();
+  } );
+  </script>
+		<!----------------------------------------------------------------------
+		Agregado por dante jeje
+
+		---------------------------------------------------------------------->
+
 
 	</head>
 	<!-- cambio -->
@@ -920,13 +950,13 @@
 													<tr class="tr-hour">
 														<td class="text-xs-right th-hour">08:00</td>
 														<!-- lunes -->
-														<td class="td-data-hour">
+														<td class="td-data-hour" id="sortable">
 															<span class="td-data-hour--content">
 
 															</span>
 														</td>
 														<!-- martes -->
-														<td class="td-data-hour">
+														<td class="td-data-hour" id="sortable2">
 															<span class="td-data-hour--content">
 
 															</span>
@@ -1041,7 +1071,7 @@
 															</span>
 														</td>
 													</tr>
-													<tr class="tr-hour">
+													<tr class="tr-hour" >
 														<td class="text-xs-right th-hour">10:00</td>
 														<!-- lunes -->
 														<td class="td-data-hour">
@@ -1451,7 +1481,7 @@
 														</td>
 														<!-- fin días -->
 													</tr>
-													<tr class="tr-hour">
+													<tr class="tr-hour" id="sortable">
 														<td class="text-xs-right th-hour">18:00</td>
 														<!-- lunes -->
 														<td class="td-data-hour">
@@ -1831,7 +1861,7 @@
 																	<span class="td-data-hour--campus-title">Sala Campus:</span>
 																	<span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
 																</span>
-															</span>
+															</span>	
 														</a>
 													</div>
 													<div class="tab-pane tab-pane-mobile" id="schedule-subjects-saturday" role="tabpanel">
@@ -1855,13 +1885,39 @@
 											<!-- inicio tabla ramos y secciones-->							
 										</div>
 										<div class="col-xs-8">
-										  
-                                                        <ul class="list-horarios">
-                                            	            <div id="draggable" class="ui-widget-content ui-draggable ui-draggable-handle" style="position: relative;">
-                                                                <li class="list-group-item">First item</li>
+										  			<div class="horarios" id="sortable sortable2">
+										  				<th class="th-data-hour text-xs-center">RAMOS DEL POSTULANTE</th>
+                                                        <ul class="list-horarios" id="sortable sortable2">
+                                            	            <div id="draggable" class="horario2" style="position: relative;">
+                                                                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
+																	<span class="td-popover td-popover--postulate">
+																		<span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
+																		<span class="title-td-data-status popover-visible">Postulado</span>
+																		<span class="title-td-subject">Arte y cultura</span>
+																		<span class="title-td-section">Sección 2</span>
+																		<span class="td-data-hour--campus popover-visible">
+																			<span class="td-data-hour--campus-title">Sala Campus:</span>
+																			<span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+																		</span>
+																	</span>
+                                                                 </li>
                                                             </div>
+                                            	            <div id="draggable2" class="horario2" style="position: relative;">
+                                                                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">										<span class="td-popover td-popover--postulate">
+																		<span class="title-td-hour">Martes 08:00-09:00 HRS</span>
+																		<span class="title-td-data-status popover-visible">Postulado</span>
+																		<span class="title-td-subject">Arte y cultura</span>
+																		<span class="title-td-section">Sección 2</span>
+																		<span class="td-data-hour--campus popover-visible">
+																			<span class="td-data-hour--campus-title">Sala Campus:</span>
+																			<span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+																		</span>
+																	</span>
+                                                                </li>
+                                                            </div>
+                                                            
                                                         </ul>
-                                                    
+                                                    </div>
 									    </div>
 								   <!-- fin tabla ramos y secciones-->
 								</div>
@@ -1870,6 +1926,143 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div>
+
+<style>
+    .taken{
+        border: 3px solid greenyellow;
+    }
+    .choque{
+        background-color: red;
+    }
+</style>
+
+<div class="container blog-content">
+    <div class="col-md-4">
+        <h1>Programación: </h1>
+        <ul>
+            <li draggable="true" ondragstart="drag(event)" data-name="Programacion" data-seccion="idseccion" data-token="lun@@h1&&jue@@h7">Sección 1</li>
+            <li draggable="true" ondragstart="drag(event)" data-name="Programacion" data-token="mie@@h6&&jue@@h7">Sección 2</li>
+            <li draggable="true" ondragstart="drag(event)" data-name="Programacion" data-token="mie@@h3&&vie@@h7">Sección 3</li>
+            <li draggable="true" ondragstart="drag(event)" data-name="Programacion" data-token="lun@@h5&&sab@@h7">Sección 4</li>
+        </ul>
+    </div>
+    <div class="col-md-8" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <table class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="h1">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            <tr id="h2">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            <tr id="h3">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            <tr id="h4">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            <tr id="h5">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            <tr id="h6">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            <tr id="h7">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            <tr id="h8">
+                <td class="lun"></td>
+                <td class="mar"></td>
+                <td class="mie"></td>
+                <td class="jue"></td>
+                <td class="vie"></td>
+                <td class="sab"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="application/javascript">
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", $(ev.target).data('token'));
+    ev.dataTransfer.setData("title", $(ev.target).data('name'));
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var title = ev.dataTransfer.getData("title");
+    data = data.split("&&")
+    data = data.map(function(value) {
+      return value.split("@@")
+    })
+    // data = [['lun','h2'], ['mar','h4']]
+    var aux;
+    data.forEach(function (item) {
+      aux = $(#"" + item[1].toString() + " > ." + item[0].toString())
+      console.log(aux.html())
+      if (aux.html() !== ''){
+        aux.addClass('choque')
+      }
+      aux.append(title)
+      aux.addClass("taken")
+    })
+  }
+</script>
+
 		</div>
 		<!-- scripts -->
 		<!-- jQuery first, then Tether, then Bootstrap JS. -->
@@ -1886,6 +2079,9 @@
   <script>
   $( function() {
     $( "#draggable" ).draggable();
+  } );
+    $( function() {
+    $( "#draggable2" ).draggable();
   } );
   </script>
 	</body>
