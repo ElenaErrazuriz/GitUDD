@@ -1,13 +1,10 @@
-
 var tableData = [];
 
 function onDragOver (e) {
   e.preventDefault()
   console.log("over")
 }
-function onDragLeave (e) {
-  console.log("out")
-}
+
 var token, title;
 
 function delSection(idramo) {
@@ -20,7 +17,6 @@ function setFocus (idramo, idseccion) {
   $(".section-simulator").each(function(item) {
     $(this).removeClass('section-selected')
   })
-  console.log(idramo + " | " + idseccion)
   $(".section-simulator-" + idramo + "-" + idseccion).addClass("section-selected")
 }
 
@@ -48,6 +44,7 @@ function drop(ev) {
 
   data = detokenize(data);
   setFocus(idramo, idseccion)
+
   delSection(idramo)
 
   data.forEach(function (item) {
@@ -64,7 +61,7 @@ function drop(ev) {
     )
   })
 }
-
+/*
 function dragElement(elmnt) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   elmnt.onmousedown = dragMouseDown;
@@ -101,3 +98,4 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+ */

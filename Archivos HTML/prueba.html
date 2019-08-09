@@ -460,59 +460,14 @@
         <div class="col-xs-8">
           <div class="horarios" >
             <h4 class="text-xs-center">RAMOS DEL POSTULANTE</h4>
-            <ul class="list-horarios">
-              <div class="horario2 section-simulator section-simulator-1-1" draggable="true" ondragstart="startdrag(event)" data-name="Arte y Cultura" data-idramo="1" data-idseccion="1" data-token="lun@@h1&&jue@@h7">
-                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
-                  <span class="td-popover td-popover--postulate">
-                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
-                    <span class="title-td-subject">Arte y cultura</span>
-                    <span class="title-td-section">Sección 2</span>
-                    <span class="td-data-hour--campus popover-visible">
-                      <span class="td-data-hour--campus-title">Sala Campus:</span>
-                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
-                    </span>
-                  </span>
-                </li>
-              </div>
-              <div class="horario2 section-simulator section-simulator-1-2" draggable="true" ondragstart="startdrag(event)" data-name="Arte y Cultura" data-idramo="1" data-idseccion="2" data-token="mie@@h6&&jue@@h7">
-                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
-                  <span class="td-popover td-popover--postulate">
-                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
-                    <span class="title-td-subject">Arte y cultura</span>
-                    <span class="title-td-section">Sección 2</span>
-                    <span class="td-data-hour--campus popover-visible">
-                      <span class="td-data-hour--campus-title">Sala Campus:</span>
-                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
-                    </span>
-                  </span>
-                </li>
-              </div>
-              <div class="horario2 section-simulator section-simulator-1-3" draggable="true" ondragstart="startdrag(event)" data-name="Arte y Cultura" data-idramo="1" data-idseccion="3" data-token="mar@@h6&&vie@@h7">
-                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
-                  <span class="td-popover td-popover--postulate">
-                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
-                    <span class="title-td-subject">Arte y cultura</span>
-                    <span class="title-td-section">Sección 2</span>
-                    <span class="td-data-hour--campus popover-visible">
-                      <span class="td-data-hour--campus-title">Sala Campus:</span>
-                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
-                    </span>
-                  </span>
-                </li>
-              </div>
-              <div class="horario2 section-simulator section-simulator-2-1" draggable="true" ondragstart="startdrag(event)" data-name="Programación" data-idramo="2" data-idseccion="1" data-token="lun@@h4&&vie@@h4">
-                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
-                  <span class="td-popover td-popover--postulate">
-                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
-                    <span class="title-td-subject">Progrmación</span>
-                    <span class="title-td-section">Sección 1</span>
-                    <span class="td-data-hour--campus popover-visible">
-                      <span class="td-data-hour--campus-title">Sala Campus:</span>
-                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
-                    </span>
-                  </span>
-                </li>
-              </div>
+            <select name="ramo" class="form-control" id="simulatorSelect">
+              <option value="0" selected disabled>Selecione algún Ramo</option>
+              <option value="1">Arte y Cultura</option>
+              <option value="2">Programación</option>
+              <option value="3">Taller de Diseño Web</option>
+              <option value="4">Gimnasia Artística</option>
+            </select>
+            <ul class="list-horarios" id="simulatorList">
             </ul>
           </div>
         </div>
@@ -520,7 +475,107 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    var ramos = [
+      {
+        idramo: 1,
+        titulo: 'Arte y Culutra',
+        seccion: [
+          {
+            idseccion: 1,
+            token: 'lun@@h1&&jue@@h7'
+          },
+          {
+            idseccion: 2,
+            token: 'mie@@h6&&jue@@h3'
+          },
+          {
+            idseccion: 3,
+            token: 'mar@@h4&&sab@@h2'
+          },
+        ]
+      },
+      {
+        idramo: 2,
+        titulo: 'Programación',
+        seccion: [
+          {
+            idseccion: 1,
+            token: 'jue@@h1&&jue@@h6'
+          },
+          {
+            idseccion: 2,
+            token: 'vie@@h1&&mie@@h7'
+          },
+          {
+            idseccion: 3,
+            token: 'lun@@h5&&jue@@h8'
+          },
+        ]
+      },
+      {
+        idramo: 3,
+        titulo: 'Taller de Diseño web',
+        seccion: [
+          {
+            idseccion: 1,
+            token: 'lun@@h2&&mar@@h6'
+          },
+          {
+            idseccion: 2,
+            token: 'mie@@h5&&sab@@h5'
+          },
+          {
+            idseccion: 3,
+            token: 'vie@@h3&&vie@@h4'
+          },
+        ]
+      },
+      {
+        idramo: 4,
+        titulo: 'Gimnasia Artística',
+        seccion: [
+          {
+            idseccion: 1,
+            token: 'vie@@h2&&mar@@h7'
+          },
+          {
+            idseccion: 2,
+            token: 'mar@@h5&&vie@@h5'
+          },
+          {
+            idseccion: 3,
+            token: 'lun@@h3&&mar@@h1'
+          },
+        ]
+      },
 
+    ]
+
+    $("#simulatorSelect").on('change',function(e) {
+      var newRamo = $(this).val()
+      var list = $("#simulatorList")
+
+      list.html('')
+      var data = ramos.filter(function(item){
+        return parseInt(item.idramo) === parseInt(newRamo)
+      })
+      data[0].seccion.forEach(function (item, idx, array) {
+        list.append('              <div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.idseccion + '" draggable="true" ondragstart="startdrag(event)" data-name="' + data[0].titulo + '" data-idramo="' + newRamo + '" data-idseccion="' + item.idseccion + '" data-token="' + item.token + '">\n' +
+          '                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">\n' +
+          '                  <span class="td-popover td-popover--postulate">\n' +
+          '                    <span class="title-td-subject">' + data[0].titulo + '</span>\n' +
+          '                    <span class="title-td-section">Sección ' + item.idseccion + '</span>\n' +
+          '                    <span class="td-data-hour--campus popover-visible">\n' +
+          '                      <span class="td-data-hour--campus-title">Sala Campus:</span>\n' +
+          '                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>\n' +
+          '                    </span>\n' +
+          '                  </span>\n' +
+          '                </li>\n' +
+          '              </div>\n')
+      })
+    })
+  </script>
   <script type="text/javascript" src="assets/js/draggable-main.js"></script>
 
 </body>
