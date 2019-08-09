@@ -6,9 +6,15 @@
     margin-left:80px;
 }
 .horario2{
+	position: relative;
+	display: flex;
+	cursor: move;
 	height:80px;
 	width: 118px;
 	margin:20px;
+}
+.section-selected{
+	border: 3px solid greenyellow;
 }
 .no-bullets {
     list-style-type: none;

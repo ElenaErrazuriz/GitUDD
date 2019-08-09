@@ -1,44 +1,527 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Droppable - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <style>
-  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
-  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
-  </style>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Toma de Ramos - UDD</title>
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Francois+One|Fira+Sans:500|Source+Sans+Pro:400,400i,600" rel="stylesheet">
 
+  <link rel="stylesheet" href="assets/css/style-udd-tdr-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/comando.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 </head>
 <body>
- 
-<div id="draggable" class="ui-widget-content"
->
-  <p data-token='jeje'>Drag me to my target</p>
-</div>
- 
-<div id="droppable" class="ui-widget-header">
-  <p>Drop here</p>
-</div>
+  <div class="horarioTable">
+      <div class="container">
+      <div class="row">
 
-  <script>
-  $( function() {
-    $( "#draggable" ).draggable();
-    $( "#droppable" ).droppable({
-      drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
-        console.log($(event.toElement).data('token'))
-      }
-    });
-  } );
-  </script> 
- 
+          <div class="col-xs-16">
+          <!-- la tabla se esconde en móviles -->
+          <!-- este contenido se grafica de manera distinta en móvil, como un listado -->
+          <table class="table schedule__table table-sm hidden-xs-down" ondragover="onDragOver(event)" ondrop="drop(event)">
+            <thead class="hidden-sm-down">
+            <tr class="tr-hour">
+              <th class="text-xs-right th-hour"><span class="hidden-xs-up">Horario</span></th>
+              <th class="th-data-hour text-xs-center">Lunes</th>
+              <th class="th-data-hour text-xs-center">Martes</th>
+              <th class="th-data-hour text-xs-center">Miércoles</th>
+              <th class="th-data-hour text-xs-center">Jueves</th>
+              <th class="th-data-hour text-xs-center">Viernes</th>
+              <th class="th-data-hour text-xs-center">Sábado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="tr-hour" id="h1">
+              <td class="text-xs-right th-hour">08:00</td>
+              <!-- lunes -->
+              <td class="td-data-hour lun">
+                  <span class="td-data-hour--content"></span>
+              </td>
+              <!-- martes -->
+              <td class="td-data-hour mar">
+                  <span class="td-data-hour--content"></span>
+              </td>
+              <!-- miercoles -->
+              <td class="td-data-hour mie">
+                  <span class="td-data-hour--content"></span>
+              </td>
+              <!-- jueves -->
+              <td class="td-data-hour jue">
+                  <span class="td-data-hour--content"></span>
+              </td>
+              <!-- viernes -->
+              <td class="td-data-hour vie">
+                  <span class="td-data-hour--content"></span>
+              </td>
+              <!-- sabado -->
+              <td class="td-data-hour sab">
+                  <span class="td-data-hour--content"></span>
+              </td>
+              <!-- fin días -->
+            </tr>
+            <tr class="tr-hour" id="h2">
+                <td class="text-xs-right th-hour">09:45</td>
+                <!-- lunes -->
+                <td class="td-data-hour lun">
+                </td>
+                <!-- martes -->
+                <td class="td-data-hour mar">
+                </td>
+                <!-- miercoles -->
+                <td class="td-data-hour mie">
+                </td>
+                <!-- jueves -->
+                <td class="td-data-hour jue">
+                </td>
+                <!-- viernes -->
+                <td class="td-data-hour vie">
+                </td>
+                <!-- sabado -->
+                <td class="td-data-hour sab">
+                </td>
+                <!-- fin días -->
+            </tr>
+            <tr class="tr-hour" id="h3">
+                <td class="text-xs-right th-hour">08:00</td>
+                <!-- lunes -->
+                <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- martes -->
+                <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- miercoles -->
+                <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- jueves -->
+                <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- viernes -->
+                <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- sabado -->
+                <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- fin días -->
+            </tr>
+            <tr class="tr-hour" id="h4">
+                <td class="text-xs-right th-hour">08:00</td>
+                <!-- lunes -->
+                <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- martes -->
+                <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- miercoles -->
+                <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- jueves -->
+                <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- viernes -->
+                <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- sabado -->
+                <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- fin días -->
+            </tr>
+            <tr class="tr-hour" id="h5">
+                <td class="text-xs-right th-hour">08:00</td>
+                <!-- lunes -->
+                <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- martes -->
+                <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- miercoles -->
+                <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- jueves -->
+                <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- viernes -->
+                <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- sabado -->
+                <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- fin días -->
+            </tr>
+            <tr class="tr-hour" id="h6">
+                <td class="text-xs-right th-hour">08:00</td>
+                <!-- lunes -->
+                <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- martes -->
+                <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- miercoles -->
+                <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- jueves -->
+                <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- viernes -->
+                <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- sabado -->
+                <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- fin días -->
+            </tr>
+            <tr class="tr-hour" id="h7">
+                <td class="text-xs-right th-hour">08:00</td>
+                <!-- lunes -->
+                <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- martes -->
+                <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- miercoles -->
+                <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- jueves -->
+                <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- viernes -->
+                <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- sabado -->
+                <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- fin días -->
+            </tr>
+            <tr class="tr-hour" id="h8">
+                <td class="text-xs-right th-hour">08:00</td>
+                <!-- lunes -->
+                <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- martes -->
+                <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- miercoles -->
+                <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- jueves -->
+                <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- viernes -->
+                <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- sabado -->
+                <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                </td>
+                <!-- fin días -->
+            </tr>
+            </tbody>
+          </table>
+          <!-- contenido tabla horario móvil -->
+          <div class="hidden-sm-up">
+            <div class="content-nav-tabs-mobile">
+              <ul class="nav nav-tabs nav-tabs-mobile">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#schedule-subjects-monday" role="tab">Lunes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#schedule-subjects-tuesday" role="tab">Martes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#schedule-subjects-wednesday" role="tab">Miércoles</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#schedule-subjects-thursday" role="tab">Jueves</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#schedule-subjects-friday" role="tab">Viernes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#schedule-subjects-saturday" role="tab">Sábado</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tab-content">
+              <div class="tab-pane tab-pane-mobile active" id="schedule-subjects-monday" role="tabpanel">
+                <!-- ramo 1 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">09:00-10:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Fotografía Cátedra</span>
+                                                                  <span class="title-td-section">Sección 1</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+                <!-- ramo 2 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-registered">
+                                                              <span class="td-popover td-popover--registered">
+                                                                  <span class="title-td-hour">14:00-15:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Historia y Teoría del Arte</span>
+                                                                <!--
+                                                                <span class="title-td-section">Sección 1</span>
+                                                                -->
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+              </div>
+              <div class="tab-pane tab-pane-mobile" id="schedule-subjects-tuesday" role="tabpanel">
+                <!-- ramo 1 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-registered">
+                                                              <span class="td-popover td-popover--registered">
+                                                                  <span class="title-td-hour">10:00-12:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Inscrito</span>
+                                                                  <span class="title-td-subject">Materialidad en la edificación</span>
+                                                                  <span class="title-td-section">Sección 1</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+                <!-- ramo 2 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">12:00-13:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Análisis de obras arquitectónicas</span>
+                                                                  <span class="title-td-section">Sección 1</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+              </div>
+              <div class="tab-pane tab-pane-mobile" id="schedule-subjects-wednesday" role="tabpanel">
+                <!-- ramo 1 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-registered">
+                                                              <span class="td-popover td-popover--registered">
+                                                                  <span class="title-td-hour">12:00-13:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Inscrito</span>
+                                                                  <span class="title-td-subject">Introducción a las sustentabilidad</span>
+                                                                <!--<span class="title-td-section">Sección 1</span>-->
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+                <!-- ramo 2 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">17:00-18:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Fotografía - Cátedra</span>
+                                                                  <span class="title-td-section">Sección 1</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+              </div>
+              <div class="tab-pane tab-pane-mobile" id="schedule-subjects-thursday" role="tabpanel">
+                <!-- ramo 1 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-registered">
+                                                              <span class="td-popover td-popover--registered">
+                                                                  <span class="title-td-hour">09:00-10:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Inscrito</span>
+                                                                  <span class="title-td-subject">Geometría Descriptiva</span>
+                                                                  <span class="title-td-section">Cátedra</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+                <!-- ramo 2 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">12:00-13:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Literatura Clásica</span>
+                                                                  <span class="title-td-section">Cátedra</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+                <!-- ramo 3 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">14:00-15:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Geometría Descriptiva</span>
+                                                                  <span class="title-td-section">Práctico</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+              </div>
+              <div class="tab-pane tab-pane-mobile" id="schedule-subjects-friday" role="tabpanel">
+                <!-- ramo 1 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">09:00-10:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Literatura Clásica</span>
+                                                                  <span class="title-td-section">Cátedra</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+                <!-- ramo 2 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">14:00-15:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Análisis de Obras Arquitectónicas</span>
+                                                                <!--<span class="title-td-section">Práctico</span>-->
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+              </div>
+              <div class="tab-pane tab-pane-mobile" id="schedule-subjects-saturday" role="tabpanel">
+                <!-- ramo 1 -->
+                <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">
+                                                              <span class="td-popover td-popover--postulate">
+                                                                  <span class="title-td-hour">09:00-10:30 HRS</span>
+                                                                  <span class="title-td-data-status popover-visible">Postulado</span>
+                                                                  <span class="title-td-subject">Cad Práctico</span>
+                                                                  <span class="title-td-section">Sección 1</span>
+                                                                  <span class="td-data-hour--campus popover-visible">
+                                                                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                                                                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                                                                  </span>
+                                                              </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- fin contenido tabla horario móvil -->
+          <!-- inicio tabla ramos y secciones-->
+        </div>
+        <div class="col-xs-8">
+          <div class="horarios" >
+            <h4 class="text-xs-center">RAMOS DEL POSTULANTE</h4>
+            <ul class="list-horarios">
+              <div class="horario2 section-simulator section-simulator-1-1" draggable="true" ondragstart="startdrag(event)" data-name="Arte y Cultura" data-idramo="1" data-idseccion="1" data-token="lun@@h1&&jue@@h7">
+                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
+                  <span class="td-popover td-popover--postulate">
+                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
+                    <span class="title-td-subject">Arte y cultura</span>
+                    <span class="title-td-section">Sección 2</span>
+                    <span class="td-data-hour--campus popover-visible">
+                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                    </span>
+                  </span>
+                </li>
+              </div>
+              <div class="horario2 section-simulator section-simulator-1-2" draggable="true" ondragstart="startdrag(event)" data-name="Arte y Cultura" data-idramo="1" data-idseccion="2" data-token="mie@@h6&&jue@@h7">
+                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
+                  <span class="td-popover td-popover--postulate">
+                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
+                    <span class="title-td-subject">Arte y cultura</span>
+                    <span class="title-td-section">Sección 2</span>
+                    <span class="td-data-hour--campus popover-visible">
+                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                    </span>
+                  </span>
+                </li>
+              </div>
+              <div class="horario2 section-simulator section-simulator-1-3" draggable="true" ondragstart="startdrag(event)" data-name="Arte y Cultura" data-idramo="1" data-idseccion="3" data-token="mar@@h6&&vie@@h7">
+                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
+                  <span class="td-popover td-popover--postulate">
+                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
+                    <span class="title-td-subject">Arte y cultura</span>
+                    <span class="title-td-section">Sección 2</span>
+                    <span class="td-data-hour--campus popover-visible">
+                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                    </span>
+                  </span>
+                </li>
+              </div>
+              <div class="horario2 section-simulator section-simulator-2-1" draggable="true" ondragstart="startdrag(event)" data-name="Programación" data-idramo="2" data-idseccion="1" data-token="lun@@h4&&vie@@h4">
+                <li class="td-data-hour--subject td-data-hour--subject-postulate no-bullets">
+                  <span class="td-popover td-popover--postulate">
+                    <span class="title-td-hour">Lunes 08:00-09:00 HRS</span>
+                    <span class="title-td-subject">Progrmación</span>
+                    <span class="title-td-section">Sección 1</span>
+                    <span class="td-data-hour--campus popover-visible">
+                      <span class="td-data-hour--campus-title">Sala Campus:</span>
+                      <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>
+                    </span>
+                  </span>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <!-- fin tabla ramos y secciones-->
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="assets/js/draggable-main.js"></script>
+
 </body>
 </html>
