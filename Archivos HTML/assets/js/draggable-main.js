@@ -1,4 +1,7 @@
-var tableData = [];
+var currentSimulation
+import('./postulacion.js').then((module) => {
+  currentSimulation = new module.default()
+})
 
 function onDragOver (e) {
   e.preventDefault()
@@ -11,13 +14,17 @@ function delSection(idramo) {
   $(".ramo-" + idramo).each(function(obj) {
     $(this).remove()
   })
+  deFocus(idramo)
+  currentSimulation.delRamo(idramo)
 }
 
 function setFocus (idramo, idseccion) {
-  $(".section-simulator").each(function(item) {
-    $(this).removeClass('section-selected')
-  })
   $(".section-simulator-" + idramo + "-" + idseccion).addClass("section-selected")
+}
+function deFocus (idramo) {
+  $(".section-simulator").each(function(index) {
+    $(this).data('idramo') === parseInt(idramo) ? $(this).removeClass('section-selected') : null
+  })
 }
 
 function startdrag(ev) {
@@ -43,23 +50,60 @@ function drop(ev) {
   var idramo = ev.dataTransfer.getData("idramo");
 
   data = detokenize(data);
-  setFocus(idramo, idseccion)
-
   delSection(idramo)
+  var availability = currentSimulation.checkAvailability(data)
+  if (availability.isPosible) {
+    setFocus(idramo, idseccion)
+    currentSimulation.addRamo({
+      idRamo: idramo,
+      idSeccion: idseccion,
+      horarios: data,
+    })
+    let aux
+    data.forEach(function (item) {
+      aux = $("#" + item[1].toString() + " > ." + item[0].toString())
+      aux.html(
+        '<span class="td-data-hour--content ' + 'ramo-' + idramo + '">\n' +
+        '    <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">\n' +
+        '      <span class="td-popover td-popover--postulate">\n' +
+        '        <span class="title-td-delete" onclick="delSection(' + idramo + ')"> x </span>\n' +
+        '        <span class="title-td-subject"> ' + title + '</span>\n' +
+        '        <span class="title-td-section">Sección  ' + idseccion + '</span>\n' +
+        '      </span>\n' +
+        '    </a>\n' +
+        '</span>\n'
+      )
+    })
+  } else {
+    if(confirm("Se eliminarán " + availability.ocurrences.length + " ramos con tope, ¿Seguro que desea continuar?")){
+      availability.ocurrences.forEach((ramo) => {
+        console.log(ramo)
+        delSection(ramo.idRamo)
+      })
+      setFocus(idramo, idseccion)
+      currentSimulation.addRamo({
+        idRamo: idramo,
+        idSeccion: idseccion,
+        horarios: data,
+      })
+      let aux
+      data.forEach(function (item) {
+        aux = $("#" + item[1].toString() + " > ." + item[0].toString())
+        aux.html(
+          '<span class="td-data-hour--content ' + 'ramo-' + idramo + '">\n' +
+          '    <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">\n' +
+          '      <span class="td-popover td-popover--postulate">\n' +
+          '        <span class="title-td-delete" onclick="delSection(' + idramo + ')"> x </span>\n' +
+          '        <span class="title-td-subject"> ' + title + '</span>\n' +
+          '        <span class="title-td-section">Sección  ' + idseccion + '</span>\n' +
+          '      </span>\n' +
+          '    </a>\n' +
+          '</span>\n'
+        )
+      })
+    }
+  }
 
-  data.forEach(function (item) {
-    aux = $("#" + item[1].toString() + " > ." + item[0].toString())
-    aux.html(
-      '                    <span class="td-data-hour--content ' + 'ramo-' + idramo + '">\n' +
-      '                        <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">\n' +
-      '                            <span class="td-popover td-popover--postulate">\n' +
-      '                              <span class="title-td-subject"> ' + title + '</span>\n' +
-      '                              <span class="title-td-section">Sección  ' + idseccion + '</span>\n' +
-      '                            </span>\n' +
-      '                          </a>\n' +
-      '                    </span>\n'
-    )
-  })
 }
 /*
 function dragElement(elmnt) {
