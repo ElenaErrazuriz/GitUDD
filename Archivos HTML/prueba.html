@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="assets/css/style-udd-tdr-icons.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/comando.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="horarioTable">
@@ -23,6 +23,17 @@
           <div class="col-xs-16">
           <!-- la tabla se esconde en móviles -->
           <!-- este contenido se grafica de manera distinta en móvil, como un listado -->
+            <div class="form-group">
+              <label for="prioridad">Horarios Tentativos:</label>
+              <select name="prioridad" class="form-control" id="prioridad">
+                <option value="0">Primera Prioridad</option>
+                <option value="1">Segunda Prioridad</option>
+                <option value="2">Tercera Prioridad</option>
+              </select>
+            </div>
+            <div class="btn-group">
+              <button role="button" class="btn btn-primary" onclick="save()">Guardar Simulacion</button>
+            </div>
           <table class="table schedule__table table-sm hidden-xs-down" ondragover="onDragOver(event)" ondrop="drop(event)">
             <thead class="hidden-sm-down">
             <tr class="tr-hour">
@@ -561,7 +572,6 @@
       })
       data[0].seccion.forEach(function (item) {
         let availability = currentSimulation.checkAvailability(detokenize(item.token))
-
         list.append(
           '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.idseccion + '" draggable="true" ondragstart="startdrag(event)" data-name="' + data[0].titulo + '" data-idramo="' + newRamo + '" data-idseccion="' + item.idseccion + '" data-token="' + item.token + '">\n' +
           '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') +' no-bullets">\n' +
@@ -581,6 +591,14 @@
         setFocus(newRamo, idSeccionFocus)
       }
     })
+    $("#prioridad").on('change', function (e) {
+      var indexLoad = $(this).val()
+      currentSimulation.loadList(indexLoad)
+      drawHorario()
+    })
+    function save(){
+      currentSimulation.saveList($("#prioridad").val())
+    }
   </script>
 
 </body>

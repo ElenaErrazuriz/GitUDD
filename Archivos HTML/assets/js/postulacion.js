@@ -1,9 +1,24 @@
 class Postulacion {
   constructor(){
-    this.ramosList = []
+    let array = localStorage.getItem('savedSimulations')
+    if (array !== null) array = JSON.parse(array)
+    else{
+      array = [[], [], []]
+      localStorage.setItem('savedSimulations', JSON.stringify(array))
+    }
+    this.priorities = array
+    this.ramosList = this.priorities[0]
+
   }
   getList () {
     return this.ramosList
+  }
+  saveList (index) {
+    this.priorities[parseInt(index)] = this.ramosList
+    localStorage.setItem('savedSimulations', JSON.stringify(this.priorities))
+  }
+  loadList (index) {
+    this.ramosList = this.priorities[parseInt(index)]
   }
   addRamo (seccionObj) {
     this.ramosList = this.ramosList.concat([seccionObj])
