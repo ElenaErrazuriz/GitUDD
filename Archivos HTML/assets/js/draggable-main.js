@@ -1,6 +1,82 @@
+var ramos = [
+  {
+    idramo: 1,
+    titulo: 'Arte y Culutra',
+    seccion: [
+      {
+        idseccion: 1,
+        token: 'vie@@h1&&jue@@h7'
+      },
+      {
+        idseccion: 2,
+        token: 'mie@@h6&&jue@@h3'
+      },
+      {
+        idseccion: 3,
+        token: 'mar@@h4&&sab@@h2'
+      },
+    ]
+  },
+  {
+    idramo: 2,
+    titulo: 'Programación',
+    seccion: [
+      {
+        idseccion: 1,
+        token: 'jue@@h1&&jue@@h6'
+      },
+      {
+        idseccion: 2,
+        token: 'vie@@h1&&mie@@h7'
+      },
+      {
+        idseccion: 3,
+        token: 'lun@@h5&&jue@@h8'
+      },
+    ]
+  },
+  {
+    idramo: 3,
+    titulo: 'Taller de Diseño web',
+    seccion: [
+      {
+        idseccion: 1,
+        token: 'lun@@h2&&mar@@h6'
+      },
+      {
+        idseccion: 2,
+        token: 'mie@@h5&&jue@@h7'
+      },
+      {
+        idseccion: 3,
+        token: 'vie@@h3&&vie@@h4'
+      },
+    ]
+  },
+  {
+    idramo: 4,
+    titulo: 'Gimnasia Artística',
+    seccion: [
+      {
+        idseccion: 1,
+        token: 'vie@@h2&&mar@@h7'
+      },
+      {
+        idseccion: 2,
+        token: 'mar@@h5&&vie@@h5'
+      },
+      {
+        idseccion: 3,
+        token: 'lun@@h3&&mar@@h1'
+      },
+    ]
+  },
+
+]
 var currentSimulation
 import('./postulacion.js').then((module) => {
   currentSimulation = new module.default()
+  drawHorario()
 })
 // función para permitir 'drop' en el horario
 function onDragOver (e) {
@@ -11,6 +87,8 @@ function delSection(idramo) {
   deFocus(idramo)
   currentSimulation.delRamo(idramo)
   drawHorario()
+  var newRamo = $('#simulatorSelect').val()
+  drawList(newRamo)
 }
 // Focusear itemes de la lista de ramos arrastrables
 function setFocus (idramo, idseccion) {
@@ -62,6 +140,33 @@ function drawHorario () {
   })
 }
 
+function drawList (newRamo) {
+  var list = $("#simulatorList")
+  list.html('')
+  var data = ramos.filter(function(item){
+    return parseInt(item.idramo) === parseInt(newRamo)
+  })
+  data[0].seccion.forEach(function (item) {
+    let availability = currentSimulation.checkAvailability(detokenize(item.token))
+    list.append(
+      '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.idseccion + '" draggable="true" ondragstart="startdrag(event)" data-name="' + data[0].titulo + '" data-idramo="' + newRamo + '" data-idseccion="' + item.idseccion + '" data-token="' + item.token + '">\n' +
+      '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') +' no-bullets">\n' +
+      '    <span class="td-popover td-popover--postulate">\n' +
+      '      <span class="title-td-subject">' + data[0].titulo + '</span>\n' +
+      '      <span class="title-td-section">Sección ' + item.idseccion + '</span>\n' +
+      '      <span class="td-data-hour--campus popover-visible">\n' +
+      '        <span class="td-data-hour--campus-title">Sala Campus:</span>\n' +
+      '        <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>\n' +
+      '      </span>\n' +
+      '    </span>\n' +
+      '  </li>\n' +
+      '</div>\n')
+  })
+  var idSeccionFocus = currentSimulation.checkFocus(newRamo)
+  if(idSeccionFocus > 0){
+    setFocus(newRamo, idSeccionFocus)
+  }
+}
 // Funcion que maneja el drop de los elementos en la tabla
 function drop(ev) {
   ev.preventDefault();
@@ -72,10 +177,10 @@ function drop(ev) {
   var idramo = ev.dataTransfer.getData("idramo");
   // detokenizar y borrar cualquier otra seccion del mismo ramo arrastrado
   data = detokenize(data);
-  delSection(idramo)
   // revisar si tiene choque de horarios
   var availability = currentSimulation.checkAvailability(data)
   if (availability.isPosible) {
+    delSection(idramo)
     setFocus(idramo, idseccion)
     currentSimulation.addRamo({
       idRamo: idramo,
@@ -85,6 +190,7 @@ function drop(ev) {
     })
   } else {
     if(confirm("Se eliminarán " + availability.ocurrences.length + " ramos con tope, ¿Seguro que desea continuar?")){
+      delSection(idramo)
       availability.ocurrences.forEach((ramo) => {
         console.log(ramo)
         delSection(ramo.idRamo)
@@ -98,5 +204,7 @@ function drop(ev) {
       })
     }
   }
+  var newRamo = $('#simulatorSelect').val()
+  drawList(newRamo)
   drawHorario()
 }

@@ -7,8 +7,7 @@ class Postulacion {
       localStorage.setItem('savedSimulations', JSON.stringify(array))
     }
     this.priorities = array
-    this.ramosList = this.priorities[0]
-
+    this.ramosList = array[0]
   }
   getList () {
     return this.ramosList

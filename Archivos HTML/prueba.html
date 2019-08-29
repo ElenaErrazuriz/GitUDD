@@ -565,36 +565,14 @@
     ]
     $("#simulatorSelect").on('change',function(e) {
       var newRamo = $(this).val()
-      var list = $("#simulatorList")
-      list.html('')
-      var data = ramos.filter(function(item){
-        return parseInt(item.idramo) === parseInt(newRamo)
-      })
-      data[0].seccion.forEach(function (item) {
-        let availability = currentSimulation.checkAvailability(detokenize(item.token))
-        list.append(
-          '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.idseccion + '" draggable="true" ondragstart="startdrag(event)" data-name="' + data[0].titulo + '" data-idramo="' + newRamo + '" data-idseccion="' + item.idseccion + '" data-token="' + item.token + '">\n' +
-          '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') +' no-bullets">\n' +
-          '    <span class="td-popover td-popover--postulate">\n' +
-          '      <span class="title-td-subject">' + data[0].titulo + '</span>\n' +
-          '      <span class="title-td-section">Sección ' + item.idseccion + '</span>\n' +
-          '      <span class="td-data-hour--campus popover-visible">\n' +
-          '        <span class="td-data-hour--campus-title">Sala Campus:</span>\n' +
-          '        <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>\n' +
-          '      </span>\n' +
-          '    </span>\n' +
-          '  </li>\n' +
-          '</div>\n')
-      })
-      var idSeccionFocus = currentSimulation.checkFocus(newRamo)
-      if(idSeccionFocus > 0){
-        setFocus(newRamo, idSeccionFocus)
-      }
+      drawList(newRamo)
     })
     $("#prioridad").on('change', function (e) {
       var indexLoad = $(this).val()
       currentSimulation.loadList(indexLoad)
       drawHorario()
+      var newRamo = $('#simulatorSelect').val()
+      drawList(newRamo)
     })
     function save(){
       currentSimulation.saveList($("#prioridad").val())
