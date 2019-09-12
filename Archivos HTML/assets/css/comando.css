@@ -40,3 +40,8 @@
 	margin-right: 150px;
 	height: 500px;
 }
+
+.schedule__table td {
+
+	height: 65px;
+}

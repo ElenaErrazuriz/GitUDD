@@ -1,0 +1,26 @@
+.site-title {
+	float: right;
+}
+
+.form-group {
+	margin-top: 1.5rem;
+}
+
+.calendario {
+	margin-left: 3.5rem;
+}
+
+.schedule__table td {
+	height: 40px;
+}
+
+li {
+	list-style: none;
+}
+
+.ramos_mobile {
+	background-color: #cccccc;
+    border: 1px;
+	float:left;
+	margin:0px 17px 20px 17px;
+}
