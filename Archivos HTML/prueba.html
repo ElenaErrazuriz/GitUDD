@@ -23,252 +23,254 @@
           <div class="col-xs-16">
           <!-- la tabla se esconde en móviles -->
           <!-- este contenido se grafica de manera distinta en móvil, como un listado -->
-            <div class="form-group">
-              <label for="prioridad">Horarios Tentativos:</label>
-              <select name="prioridad" class="form-control" id="prioridad">
-                <option value="0">Primera Prioridad</option>
-                <option value="1">Segunda Prioridad</option>
-                <option value="2">Tercera Prioridad</option>
-              </select>
+            <div class="hidden-md-down">
+              <div class="form-group">
+                <label for="prioridad">Horarios Tentativos:</label>
+                <select name="prioridad" class="form-control" id="prioridad">
+                  <option value="0">Horario 1</option>
+                  <option value="1">Horario 2</option>
+                  <option value="2">Horario 3</option>
+                </select>
+              </div>
+              <table class="table schedule__table table-sm hidden-xs-down" ondragover="onDragOver(event)" ondrop="drop(event)">
+                <thead >
+                <tr class="tr-hour">
+                  <th class="text-xs-right th-hour"><span class="hidden-xs-up">Horario</span></th>
+                  <th class="th-data-hour text-xs-center">Lunes</th>
+                  <th class="th-data-hour text-xs-center">Martes</th>
+                  <th class="th-data-hour text-xs-center">Miércoles</th>
+                  <th class="th-data-hour text-xs-center">Jueves</th>
+                  <th class="th-data-hour text-xs-center">Viernes</th>
+                  <th class="th-data-hour text-xs-center">Sábado</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="tr-hour" id="h1">
+                  <td class="text-xs-right th-hour">H1</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                <tr class="tr-hour" id="h2">
+                  <td class="text-xs-right th-hour">H2</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                <tr class="tr-hour" id="h3">
+                  <td class="text-xs-right th-hour">H3</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                <tr class="tr-hour" id="h4">
+                  <td class="text-xs-right th-hour">H4</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                <tr class="tr-hour" id="h5">
+                  <td class="text-xs-right th-hour">H5</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                <tr class="tr-hour" id="h6">
+                  <td class="text-xs-right th-hour">H6</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                <tr class="tr-hour" id="h7">
+                  <td class="text-xs-right th-hour">H7</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                <tr class="tr-hour" id="h8">
+                  <td class="text-xs-right th-hour">H8</td>
+                  <!-- lunes -->
+                  <td class="td-data-hour lun">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- martes -->
+                  <td class="td-data-hour mar">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- miercoles -->
+                  <td class="td-data-hour mie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- jueves -->
+                  <td class="td-data-hour jue">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- viernes -->
+                  <td class="td-data-hour vie">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- sabado -->
+                  <td class="td-data-hour sab">
+                    <span class="td-data-hour--content"></span>
+                  </td>
+                  <!-- fin días -->
+                </tr>
+                </tbody>
+              </table>
+              <div class="btn-group pull-lg-right">
+                <button role="button" class="btn btn-primary" onclick="save()">Guardar Simulacion</button>
+              </div>
             </div>
-            <div class="btn-group">
-              <button role="button" class="btn btn-primary" onclick="save()">Guardar Simulacion</button>
-            </div>
-          <table class="table schedule__table table-sm hidden-xs-down" ondragover="onDragOver(event)" ondrop="drop(event)">
-            <thead class="hidden-sm-down">
-            <tr class="tr-hour">
-              <th class="text-xs-right th-hour"><span class="hidden-xs-up">Horario</span></th>
-              <th class="th-data-hour text-xs-center">Lunes</th>
-              <th class="th-data-hour text-xs-center">Martes</th>
-              <th class="th-data-hour text-xs-center">Miércoles</th>
-              <th class="th-data-hour text-xs-center">Jueves</th>
-              <th class="th-data-hour text-xs-center">Viernes</th>
-              <th class="th-data-hour text-xs-center">Sábado</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="tr-hour" id="h1">
-              <td class="text-xs-right th-hour">H1</td>
-              <!-- lunes -->
-              <td class="td-data-hour lun">
-                  <span class="td-data-hour--content"></span>
-              </td>
-              <!-- martes -->
-              <td class="td-data-hour mar">
-                  <span class="td-data-hour--content"></span>
-              </td>
-              <!-- miercoles -->
-              <td class="td-data-hour mie">
-                  <span class="td-data-hour--content"></span>
-              </td>
-              <!-- jueves -->
-              <td class="td-data-hour jue">
-                  <span class="td-data-hour--content"></span>
-              </td>
-              <!-- viernes -->
-              <td class="td-data-hour vie">
-                  <span class="td-data-hour--content"></span>
-              </td>
-              <!-- sabado -->
-              <td class="td-data-hour sab">
-                  <span class="td-data-hour--content"></span>
-              </td>
-              <!-- fin días -->
-            </tr>
-            <tr class="tr-hour" id="h2">
-                <td class="text-xs-right th-hour">H2</td>
-                <!-- lunes -->
-                <td class="td-data-hour lun">
-                </td>
-                <!-- martes -->
-                <td class="td-data-hour mar">
-                </td>
-                <!-- miercoles -->
-                <td class="td-data-hour mie">
-                </td>
-                <!-- jueves -->
-                <td class="td-data-hour jue">
-                </td>
-                <!-- viernes -->
-                <td class="td-data-hour vie">
-                </td>
-                <!-- sabado -->
-                <td class="td-data-hour sab">
-                </td>
-                <!-- fin días -->
-            </tr>
-            <tr class="tr-hour" id="h3">
-                <td class="text-xs-right th-hour">H3</td>
-                <!-- lunes -->
-                <td class="td-data-hour lun">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- martes -->
-                <td class="td-data-hour mar">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- miercoles -->
-                <td class="td-data-hour mie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- jueves -->
-                <td class="td-data-hour jue">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- viernes -->
-                <td class="td-data-hour vie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- sabado -->
-                <td class="td-data-hour sab">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- fin días -->
-            </tr>
-            <tr class="tr-hour" id="h4">
-                <td class="text-xs-right th-hour">H4</td>
-                <!-- lunes -->
-                <td class="td-data-hour lun">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- martes -->
-                <td class="td-data-hour mar">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- miercoles -->
-                <td class="td-data-hour mie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- jueves -->
-                <td class="td-data-hour jue">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- viernes -->
-                <td class="td-data-hour vie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- sabado -->
-                <td class="td-data-hour sab">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- fin días -->
-            </tr>
-            <tr class="tr-hour" id="h5">
-                <td class="text-xs-right th-hour">H5</td>
-                <!-- lunes -->
-                <td class="td-data-hour lun">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- martes -->
-                <td class="td-data-hour mar">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- miercoles -->
-                <td class="td-data-hour mie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- jueves -->
-                <td class="td-data-hour jue">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- viernes -->
-                <td class="td-data-hour vie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- sabado -->
-                <td class="td-data-hour sab">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- fin días -->
-            </tr>
-            <tr class="tr-hour" id="h6">
-                <td class="text-xs-right th-hour">H6</td>
-                <!-- lunes -->
-                <td class="td-data-hour lun">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- martes -->
-                <td class="td-data-hour mar">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- miercoles -->
-                <td class="td-data-hour mie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- jueves -->
-                <td class="td-data-hour jue">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- viernes -->
-                <td class="td-data-hour vie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- sabado -->
-                <td class="td-data-hour sab">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- fin días -->
-            </tr>
-            <tr class="tr-hour" id="h7">
-                <td class="text-xs-right th-hour">H7</td>
-                <!-- lunes -->
-                <td class="td-data-hour lun">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- martes -->
-                <td class="td-data-hour mar">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- miercoles -->
-                <td class="td-data-hour mie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- jueves -->
-                <td class="td-data-hour jue">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- viernes -->
-                <td class="td-data-hour vie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- sabado -->
-                <td class="td-data-hour sab">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- fin días -->
-            </tr>
-            <tr class="tr-hour" id="h8">
-                <td class="text-xs-right th-hour">H8</td>
-                <!-- lunes -->
-                <td class="td-data-hour lun">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- martes -->
-                <td class="td-data-hour mar">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- miercoles -->
-                <td class="td-data-hour mie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- jueves -->
-                <td class="td-data-hour jue">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- viernes -->
-                <td class="td-data-hour vie">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- sabado -->
-                <td class="td-data-hour sab">
-                    <span class="td-data-hour--content"></span>
-                </td>
-                <!-- fin días -->
-            </tr>
-            </tbody>
-          </table>
-          <!-- contenido tabla horario móvil -->
-          <div class="hidden-sm-up">
+            <!-- contenido tabla horario móvil -->
+            <div class="hidden-sm-up">
             <div class="content-nav-tabs-mobile">
               <ul class="nav nav-tabs nav-tabs-mobile">
                 <li class="nav-item">
@@ -464,6 +466,7 @@
                 </a>
               </div>
             </div>
+
           </div>
           <!-- fin contenido tabla horario móvil -->
           <!-- inicio tabla ramos y secciones-->

@@ -1,7 +1,7 @@
 var ramos = [
   {
     idramo: 1,
-    titulo: 'Arte y Culutra',
+    titulo: 'Arte y Cultura',
     seccion: [
       {
         idseccion: 1,
@@ -73,6 +73,7 @@ var ramos = [
   },
 
 ]
+var dragging = false
 var currentSimulation
 import('./postulacion.js').then((module) => {
   currentSimulation = new module.default()
@@ -102,6 +103,7 @@ function deFocus (idramo) {
 }
 // Funcion que linkea la info correspondiente al iniciar un drag
 function startdrag(ev) {
+  dragging = true
   ev.dataTransfer.setData("text", $(ev.target).data('token'));
   ev.dataTransfer.setData("title", $(ev.target).data('name'));
   ev.dataTransfer.setData("idramo", $(ev.target).data('idramo'));
@@ -114,6 +116,9 @@ function detokenize (token,separators = ['&&','@@']) {
     return item.split(separators[1])
   })
   return aux
+}
+function undrag(){
+  dragging = false
 }
 // Dibujar el horario en base a los ramos en la simulación
 function drawHorario () {
@@ -139,7 +144,7 @@ function drawHorario () {
     })
   })
 }
-
+// Dibujar el horario en base a los ramos en la simulación
 function drawList (newRamo) {
   var list = $("#simulatorList")
   list.html('')
@@ -148,23 +153,66 @@ function drawList (newRamo) {
   })
   data[0].seccion.forEach(function (item) {
     let availability = currentSimulation.checkAvailability(detokenize(item.token))
-    list.append(
-      '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.idseccion + '" draggable="true" ondragstart="startdrag(event)" data-name="' + data[0].titulo + '" data-idramo="' + newRamo + '" data-idseccion="' + item.idseccion + '" data-token="' + item.token + '">\n' +
+    let html =
+      '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.idseccion + '" draggable="true" onmouseup="handleClick(this)" ondragstart="startdrag(event)" ondragend="undrag()" data-name="' + data[0].titulo + '" data-idramo="' + newRamo + '" data-idseccion="' + item.idseccion + '" data-token="' + item.token + '">\n' +
       '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') +' no-bullets">\n' +
       '    <span class="td-popover td-popover--postulate">\n' +
       '      <span class="title-td-subject">' + data[0].titulo + '</span>\n' +
       '      <span class="title-td-section">Sección ' + item.idseccion + '</span>\n' +
-      '      <span class="td-data-hour--campus popover-visible">\n' +
-      '        <span class="td-data-hour--campus-title">Sala Campus:</span>\n' +
-      '        <span class="td-data-hour--campus-place">43B-Rector Ernesto Silva Bafalluy</span>\n' +
-      '      </span>\n' +
+      '      <span class="td-data-hour--campus">\n';
+    detokenize(item.token).forEach(function (item) {
+      html += '        <span class="td-data-hour--campus-title">' + item[0] + ' - ' + item[1] + '</span>\n'
+    })
+    html += '</span>\n' +
       '    </span>\n' +
       '  </li>\n' +
-      '</div>\n')
+      '</div>\n';
+    list.append(html)
   })
   var idSeccionFocus = currentSimulation.checkFocus(newRamo)
   if(idSeccionFocus > 0){
     setFocus(newRamo, idSeccionFocus)
+  }
+}
+
+function handleClick (ev) {
+  if (!dragging) {
+    var data = $(ev).data('token');
+    var title = $(ev).data('name');
+    var idseccion = $(ev).data('idseccion');
+    var idramo = $(ev).data('idramo');
+
+    data = detokenize(data);
+    // revisar si tiene choque de horarios
+    var availability = currentSimulation.checkAvailability(data)
+    if (availability.isPosible) {
+      delSection(idramo)
+      setFocus(idramo, idseccion)
+      currentSimulation.addRamo({
+        idRamo: idramo,
+        idSeccion: idseccion,
+        horarios: data,
+        title: title,
+      })
+    } else {
+      if(confirm("Se eliminarán " + availability.ocurrences.length + " ramos con tope, ¿Seguro que desea continuar?")){
+        delSection(idramo)
+        availability.ocurrences.forEach((ramo) => {
+          console.log(ramo)
+          delSection(ramo.idRamo)
+        })
+        setFocus(idramo, idseccion)
+        currentSimulation.addRamo({
+          idRamo: idramo,
+          idSeccion: idseccion,
+          horarios: data,
+          title: title,
+        })
+      }
+    }
+    var newRamo = $('#simulatorSelect').val()
+    drawList(newRamo)
+    drawHorario()
   }
 }
 // Funcion que maneja el drop de los elementos en la tabla
@@ -175,6 +223,7 @@ function drop(ev) {
   var title = ev.dataTransfer.getData("title");
   var idseccion = ev.dataTransfer.getData("idseccion");
   var idramo = ev.dataTransfer.getData("idramo");
+  dragging = false
   // detokenizar y borrar cualquier otra seccion del mismo ramo arrastrado
   data = detokenize(data);
   // revisar si tiene choque de horarios
