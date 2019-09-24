@@ -9,23 +9,29 @@
 	position: relative;
 	display: flex;
 	cursor: move;
-	height:80px;
+	height:71px;
 	width: 118px;
-	margin:20px;
+	margin:25px;
 }
 .title-td-delete{
 	color: red;
 }
-.section-selected{
-	border: 3px solid greenyellow;
-}
+
+/*.section-selected {
+    border: 1px solid;
+    border-color: #ccc;
+	box-shadow: 0 8px 6px -6px #ccc;
+}*/
+
 .no-bullets {
     list-style-type: none;
 }
+
 #draggable { 
 	width: 100px; 
 	padding: 0.5em;
 }
+
 .horarios{
 	height: 731px;
 	width: 300px;
@@ -35,6 +41,7 @@
 	text-align: center;
 	padding:4.8px;
 }
+
 .list-horarios{
 	z-index: 100px;
 	margin-right: 150px;
@@ -45,3 +52,21 @@
 
 	height: 65px;
 }
+
+.td-data-hour--subject-postulate {
+	background-color: #f2f9ff;
+	box-shadow: 0 8px 6px -6px #b0c4c9;
+	border:none;
+}
+
+.td-data-hour--subject-required {
+	box-shadow: inset 0 0 10px #b0c4c9;
+	background-color: #f2f9ff;
+	border:none;
+}
+
+.tope-horario {
+	background-color: #fff8f5;
+	box-shadow: 0 8px 6px -6px #fb4700;
+}
+
