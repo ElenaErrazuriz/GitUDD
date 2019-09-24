@@ -24,3 +24,6 @@ li {
 	float:left;
 	margin:0px 17px 20px 17px;
 }
+.section-selected{
+	border: 3px solid greenyellow;
+}
