@@ -155,7 +155,7 @@ function drawList (newRamo) {
     let availability = currentSimulation.checkAvailability(detokenize(item.token))
     let html =
       '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.idseccion + '" draggable="true" onmouseup="handleClick(this)" ondragstart="startdrag(event)" ondragend="undrag()" data-name="' + data[0].titulo + '" data-idramo="' + newRamo + '" data-idseccion="' + item.idseccion + '" data-token="' + item.token + '">\n' +
-      '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') +' no-bullets">\n' +
+      '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') + ' no-bullets">\n' +
       '    <span class="td-popover td-popover--postulate">\n' +
       '      <span class="title-td-subject">' + data[0].titulo + '</span>\n' +
       '      <span class="title-td-section">Sección ' + item.idseccion + '</span>\n' +

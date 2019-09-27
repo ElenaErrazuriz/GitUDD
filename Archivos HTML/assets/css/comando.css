@@ -1,10 +1,19 @@
 @charset "UTF-8";
+
+
+.site-title {
+	float: right;
+}
+
 .container{
       max-width: 1080px;
 }
+
 .horarioTable{
     margin-left:80px;
+    margin-top:3rem;
 }
+
 .horario2{
 	position: relative;
 	display: flex;
@@ -45,7 +54,7 @@
 .list-horarios{
 	z-index: 100px;
 	margin-right: 150px;
-	height: 500px;
+	height: 300px;
 }
 
 .schedule__table td {
@@ -65,8 +74,4 @@
 	border:none;
 }
 
-.tope-horario {
-	background-color: #fff8f5;
-	box-shadow: 0 8px 6px -6px #fb4700;
-}
 
