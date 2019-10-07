@@ -103,7 +103,6 @@ class Postulacion {
       }
     } , [])
     if (ocurrencesList.length){
-      debugger;
       return {isPosible: false, ocurrences: ocurrencesList}
     } else {
       return {isPosible: true, ocurrences: []}
