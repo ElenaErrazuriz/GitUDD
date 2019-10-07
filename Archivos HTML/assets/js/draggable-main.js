@@ -23,7 +23,7 @@ function delSection(idramo) {
   deFocus(idramo)
   currentSimulation.delRamo(idramo)
   drawHorario()
-  let newRamo = $('#simulatorSelect').val
+  let newRamo = $('#simulatorSelect').val()
   drawList(newRamo)
 }
 // Focusear itemes de la lista de ramos arrastrables
