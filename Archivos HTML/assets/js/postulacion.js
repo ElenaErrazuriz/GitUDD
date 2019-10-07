@@ -93,14 +93,12 @@ class Postulacion {
         })
         return aux.length > 0
       })
-      if(filtered.length) {ocurrencesList.concat(filtered)}
+      if(filtered.length) { ocurrencesList = ocurrencesList.concat(filtered)}
     })
 
     if (ocurrencesList.length){
       return {isPosible: false, ocurrences: ocurrencesList}
     } else {
-      debugger
-
       return {isPosible: true, ocurrences: []}
     }
   }
