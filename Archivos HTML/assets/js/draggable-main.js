@@ -8,8 +8,10 @@ import('./postulacion.js').then((module) => {
 })
 function setSelect(){
   let simulator = $('#simulatorSelect')
+  let simulator2 = $('#simulatorSelect2')
   currentSimulation.getSimulationList().forEach(function(item) {
     simulator.append('<option value="' + item.CodRamo + '">' + item.NombreRamo +'</option>')
+    simulator2.append('<option value="' + item.CodRamo + '">' + item.NombreRamo +'</option>')
   })
 }
 // función para permitir 'drop' en el horario
@@ -21,7 +23,7 @@ function delSection(idramo) {
   deFocus(idramo)
   currentSimulation.delRamo(idramo)
   drawHorario()
-  var newRamo = $('#simulatorSelect').val()
+  let newRamo = $('#simulatorSelect').val
   drawList(newRamo)
 }
 // Focusear itemes de la lista de ramos arrastrables
@@ -68,10 +70,10 @@ function drawHorario () {
   ramos.forEach(function (ramo) {
     ramo.Bloques.forEach((bloque) => {
       bloque = convertBloque(bloque)
-      aux = $("#" + bloque.Inicio.split(':')[0] + " > ." + bloque.abv)
+      aux = $("." + bloque.Inicio.split(':')[0] + " > ." + bloque.abv)
       aux.html(
-        '<span class="td-data-hour--content ' + 'ramo-' + ramo.CodRamo + '" style="">\n' +
-        '    <a href="#infoModal" data-toggle="modal" data-codramo="' + ramo.CodRamo + '" data-idseccion="' + ramo.IdSeccion + '" data-tipo="' + bloque.Tipo + '" data-ini="' + bloque.Inicio + '" data-fin="' + bloque.Fin + '" class="td-data-hour--subject td-data-hour--subject-postulate">\n' +
+        '<span class="td-data-hour--content ' + 'ramo-' + ramo.CodRamo + '" >\n' +
+        '    <a href="#infoModal" data-toggle="modal" data-codramo="' + ramo.CodRamo + '" data-idseccion="' + ramo.IdSeccion + '" data-tipo="' + bloque.Tipo + '" data-ini="' + bloque.Inicio + '" data-fin="' + bloque.Fin + '" class="td-data-hour--subject td-data-hour--subject-postulate" style="margin-top: ' + (parseInt(bloque.Inicio.split(':')[1])/60)*(65) + 'px; height: ' + (bloque.duration/60)*65+'px">\n' +
         '      <span class="td-popover td-popover--postulate">\n' +
         '        <span class="title-td-hour"> ' + bloque.Inicio + '-' + bloque.Fin + ' Hrs</span>\n' +
         '        <span class="title-td-data-status popover-visible"> ' + ramo.Estado + '</span>\n' +
@@ -91,7 +93,9 @@ function drawHorario () {
 // Dibujar el horario en base a los ramos en la simulación
 function drawList (newRamo) {
   var list = $("#simulatorList")
+  var list2 = $("#simulatorList2")
   list.html('')
+  list2.html('')
   var data = currentSimulation.getSimulationList().filter(function(item){
     return item.CodRamo === newRamo
   })
@@ -113,7 +117,8 @@ function drawList (newRamo) {
       '    </span>\n' +
       '  </li>\n' +
       '</div>\n';
-    list.append(html)
+    list.append(html);
+    list2.append(html);
   })
   var idSeccionFocus = currentSimulation.checkFocus(newRamo)
   if(idSeccionFocus !== '0'){
@@ -144,8 +149,7 @@ function handleClick (ev) {
           currentSimulation.addRamo(data)
         }
       }
-      var newRamo = $('#simulatorSelect').val()
-      drawList(newRamo)
+      drawList(idramo)
       drawHorario()
     }
   }
