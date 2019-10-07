@@ -1,78 +1,3 @@
-var ramos = [
-  {
-    idramo: 1,
-    titulo: 'Arte y Cultura',
-    seccion: [
-      {
-        idseccion: 1,
-        token: 'vie@@h1&&jue@@h7'
-      },
-      {
-        idseccion: 2,
-        token: 'mie@@h6&&jue@@h3'
-      },
-      {
-        idseccion: 3,
-        token: 'mar@@h4&&sab@@h2'
-      },
-    ]
-  },
-  {
-    idramo: 2,
-    titulo: 'Programación',
-    seccion: [
-      {
-        idseccion: 1,
-        token: 'jue@@h1&&jue@@h6'
-      },
-      {
-        idseccion: 2,
-        token: 'vie@@h1&&mie@@h7'
-      },
-      {
-        idseccion: 3,
-        token: 'lun@@h5&&jue@@h8'
-      },
-    ]
-  },
-  {
-    idramo: 3,
-    titulo: 'Taller de Diseño web',
-    seccion: [
-      {
-        idseccion: 1,
-        token: 'lun@@h2&&mar@@h6'
-      },
-      {
-        idseccion: 2,
-        token: 'mie@@h5&&jue@@h7'
-      },
-      {
-        idseccion: 3,
-        token: 'vie@@h3&&vie@@h4'
-      },
-    ]
-  },
-  {
-    idramo: 4,
-    titulo: 'Gimnasia Artística',
-    seccion: [
-      {
-        idseccion: 1,
-        token: 'vie@@h2&&mar@@h7'
-      },
-      {
-        idseccion: 2,
-        token: 'mar@@h5&&vie@@h5'
-      },
-      {
-        idseccion: 3,
-        token: 'lun@@h3&&mar@@h1'
-      },
-    ]
-  },
-
-]
 var dragging = false
 var currentSimulation
 import('./postulacion.js').then((module) => {
@@ -134,7 +59,6 @@ function drawHorario () {
         '<span class="td-data-hour--content ' + 'ramo-' + ramo.idRamo + '">\n' +
         '    <a href="#" class="td-data-hour--subject td-data-hour--subject-postulate">\n' +
         '      <span class="td-popover td-popover--postulate">\n' +
-        '        <span class="title-td-delete" onclick="delSection(' + ramo.idRamo + ')"> x </span>\n' +
         '        <span class="title-td-subject"> ' + ramo.title + '</span>\n' +
         '      </span>\n' +
         '    </a>\n' +
@@ -143,7 +67,7 @@ function drawHorario () {
     })
   })
 }
-// Dibujar el horario en base a los ramos en la simulación
+// Dibujar la lista de ramos en base a select de la simulación
 function drawList (newRamo) {
   var list = $("#simulatorList")
   list.html('')

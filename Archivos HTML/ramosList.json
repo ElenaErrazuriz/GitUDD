@@ -1,0 +1,27 @@
+const ramos = [
+	{
+		'idRamo': 1,
+		'nombre': 'Ramo 1',
+		'profesor': 'Profe 1',
+		'secciones': [
+			{
+				'idSeccion': 1,
+				'bloques': [
+					{
+						'inicio': '09:30:00',
+						'fin': '11:00:00',
+						'tipo': 'cátedra' || 'laboratorio' || 'ayudantía' || 'taller' || 'etc',
+					}, {...},
+				]
+			}, {...},
+		]
+	}, {...}
+];
+
+const ramosPreseleccionados = [
+	{
+		'idRamo': 1,
+		'idSeccion': 2,
+		'tipo': 'Inscrito' || 'Postulado' || 'Obligatorio',
+	}
+]
