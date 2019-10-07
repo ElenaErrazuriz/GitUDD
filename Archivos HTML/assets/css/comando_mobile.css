@@ -27,3 +27,15 @@ li {
 .section-selected{
 	border: 3px solid greenyellow;
 }
+
+.td-data-hour--subject-postulate {
+	background-color: #f2f9ff;
+	box-shadow: 0 8px 6px -6px #b0c4c9;
+	border:none;
+}
+
+.td-data-hour--subject-required {
+	box-shadow: inset 0 0 10px #b0c4c9;
+	background-color: #f2f9ff;
+	border:none;
+}

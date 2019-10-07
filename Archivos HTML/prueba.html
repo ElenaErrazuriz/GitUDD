@@ -16,6 +16,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<nav id="header" class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <nav class="navbar-brand">
+        <a href="http://www.udd.cl" class="logo-udd"></a>
+        <h1 class="site-title">Toma de Ramos</h1>
+      </nav>
+
+    </div>
+  </nav>
+
   <div class="horarioTable">
       <div class="container">
       <div class="row">
@@ -32,6 +43,7 @@
                   <option value="2">Horario 3</option>
                 </select>
               </div>
+
               <table class="table schedule__table table-sm hidden-xs-down" ondragover="onDragOver(event)" ondrop="drop(event)">
                 <thead >
                   <tr class="tr-hour">
@@ -647,6 +659,18 @@
             </select>
             <ul class="list-horarios" id="simulatorList">
             </ul>
+
+            <select name="ramo" class="form-control" id="simulatorSelect">
+              <option value="0" selected disabled>Selecione algún Track</option>
+              <option value="1">Emprendimiento</option>
+              <option value="2">Responsabilidad Pública</option>
+              <option value="3">Humanidades</option>
+              <option value="4">Ciencia, Tecnología e Innovación</option>
+            </select>
+            <ul class="list-horarios" id="simulatorList">
+            </ul>
+
+          </div>
           </div>
         </div>
         <!-- fin tabla ramos y secciones-->
