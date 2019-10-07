@@ -10,7 +10,7 @@ function check(bloque, bloque2){
   let fin2 = bloque2.Fin.split(':')
   ini2 = parseInt(ini2[0])*60 + parseInt(ini2[1])
   fin2 = parseInt(fin2[0])*60 + parseInt(fin2[1])
-  if((ini >= ini2 && ini <= fin2) || (fin >= ini2 && fin <= fin2) || (ini < ini2 && fin > fin2)) {
+  if(((ini >= ini2 && ini <= fin2) || (fin >= ini2 && fin <= fin2) || (ini < ini2 && fin > fin2)) && bloque.Dia === bloque2.Dia) {
     return true
   } else return false
 }
@@ -95,8 +95,15 @@ class Postulacion {
       })
       if(filtered.length) { ocurrencesList = ocurrencesList.concat(filtered)}
     })
-
+    ocurrencesList = ocurrencesList.reduce((list, item) => {
+      if(list.filter(ocurrence => ocurrence.CodRamo === item.CodRamo).length) {
+        return list
+      } else {
+        return list.concat([item])
+      }
+    } , [])
     if (ocurrencesList.length){
+      debugger;
       return {isPosible: false, ocurrences: ocurrencesList}
     } else {
       return {isPosible: true, ocurrences: []}
