@@ -68,8 +68,10 @@
 }
 
 .td-data-hour--subject-required {
-	box-shadow: inset 0 0 10px #b0c4c9;
-	background-color: #f2f9ff;
+	/*box-shadow: inset 0 0 10px #b0c4c9;
+	background-color: #f2f9ff;*/
+	box-shadow: 0 8px 6px -6px #ff8782;
+	background-color: #fff8f5;
 	border:none;
 }
 
@@ -78,4 +80,17 @@
 	margin-right: 100px;
 	margin-top: 40px;
     list-style: none;
+}
+
+.title-td-section {
+    margin-bottom: 0px;
+}
+
+a:focus, a:hover {
+    color: #002443;
+    text-decoration: none;
+}
+
+footer{
+	height: 50px;
 }
