@@ -101,6 +101,49 @@ a:focus, a:hover {
 	font-size: 2rem;
 }
 
+.glosario{
+	margin-top: 30px;
+}
+
+@media (max-width: 650px) {
+	
+	.glosario .no-bullets {
+    list-style-type: none;
+    background-color: white;
+    padding: 20px 0px 20px 20px;
+    width: 300px;
+}
+
+}
+
+.glosario .no-bullets {
+    list-style-type: none;
+    background-color: white;
+    margin-left: 16.4844px;
+    padding: 20px 0px 20px 20px;
+    width: 300px;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.puede .dot {
+  background-color: #f2f9ff;
+  box-shadow: 0 6px 6px -5px #b0c4c9;
+}
+
+.topeH .dot {
+  background-color: #ffebeb;
+  box-shadow: 0 6px 6px -5px #ff8782;
+}
+
+
+
 footer{
 	height: 50px;
 }
