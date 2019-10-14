@@ -8,9 +8,10 @@
   <!-- Styles -->
   <link href="https://fonts.googleapis.com/css?family=Francois+One|Fira+Sans:500|Source+Sans+Pro:400,400i,600" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/style-udd-tdr-icons.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/comando.css">
+  <link rel="stylesheet" href="assets/css/style-udd-tdr-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="fontawesome-free-5.11.2-web/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/comando.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
@@ -50,6 +51,7 @@
                         <option value="1">Horario 2</option>
                         <option value="2">Horario 3</option>
                       </select>
+                      <p class="pull-lg-right text-muted">Guardado por última vez: <span id="lastModPriority"></span></p>
                     </div>
                     <table class="table schedule__table table-sm" ondragover="onDragOver(event)" ondrop="drop(event)">
                       <thead >
@@ -63,7 +65,7 @@
                         <th class="th-data-hour text-xs-center">Sábado</th>
                       </tr>
                       </thead>
-                      <tbody>
+                      <tbody id="pc">
                       <tr class="tr-hour 08">
                         <td class="text-xs-right th-hour">08:00</td>
                         <!-- lunes -->
@@ -453,7 +455,8 @@
                       </tbody>
                     </table>
                     <div class="btn-group pull-lg-right">
-                      <button role="button" class="btn btn-primary" onclick="save('')">Guardar Simulacion</button>
+                      <button role="button" class="btn btn-primary" onclick="save('')" id="savesimulation">Guardar Simulación</button>
+                      <button role="button" class="btn btn-danger" onclick="cleanHorario()"><i class="fa fa-trash"></i></button>
                     </div>
                   </div>
                   <div class="col-xs-8">
@@ -465,6 +468,15 @@
                       <div class="list-horarios" id="simulatorList">
                       </div>
                     </div>
+                      <div class="glosario">
+                        <ul class="no-bullets">
+                          <li><h4>SIMBOLOGIA</h4></li>
+                          <li class ="puede"><span class="dot"></span>Ramos Puede</li>
+                          <li class ="topeH"><span class="dot"></span>Ramos con Tope de Horario</li>
+                          <li class ="selected"><span class="dot"></span>Seccion Seleccionada</li>
+                        </ul>
+                      </div>
+                      
                   </div>
                 </div>
               </div>
@@ -474,7 +486,7 @@
             <div class="hidden-md-up">
               <div class="container">
                 <div class="row">
-                  <div class="col-xs-14">
+                  <div class="col-xs-22">
                     <div class="form-group">
                       <label for="simulatorSelect">Seleccione algún Ramo:</label>
                       <select name="ramo" class="form-control" id="simulatorSelect2">
@@ -485,7 +497,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-xs-14 list-horarios" style="height: 100px" id="simulatorList2">
+                  <div class="col-xs-22 list-horarios-mobile" id="simulatorList2">
                   </div>
                 </div>
 
@@ -504,7 +516,7 @@
                           <th class="th-data-hour text-xs-center">Sábado</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="mobile">
                         <tr class="tr-hour 08">
                           <td class="text-xs-right th-hour">08:00</td>
                           <!-- lunes -->
@@ -893,6 +905,14 @@
                         </tr>
                         </tbody>
                       </table>
+                      <div class="glosario">
+                        <ul class="no-bullets">
+                          <li><h4>SIMBOLOGIA</h4></li>
+                          <li class="puede"><span class="dot"></span>Ramos Puede</li>
+                          <li class="topeH"><span class="dot"></span>Ramos con Tope de Horario</li>
+                          <li class ="selected"><span class="dot"></span>Seccion Seleccionada</li>
+                        </ul>
+                      </div>
                       <div class="input-group pull-lg-right">
                         <select name="prioridad" class="form-control" id="prioridad2">
                           <option value="0">Horario 1</option>
@@ -900,8 +920,12 @@
                           <option value="2">Horario 3</option>
                         </select>
                         <div class="input-group-btn">
-                          <button role="button" class="btn btn-primary" onclick="save('2')">Guardar Simulacion</button>
+                          <button role="button" class="btn btn-primary" onclick="save('2')" id="savesimulation2">Guardar Simulación</button>
+                          <button role="button" class="btn btn-danger" onclick="cleanHorario()"><i class="fa fa-trash"></i></button>
                         </div>
+                      </div>
+                      <div>
+                        <p class="pull-right text-muted">Guardado por última vez: <span id="lastModPriority2"></span></p>
                       </div>
                     </div>
                   </div>
@@ -944,7 +968,7 @@
   
 </footer>
 
-  <script type="text/javascript" src="/assets/js/draggable-main.js"></script>
+  <script type="text/javascript" src="assets/js/draggable-main.js"></script>
   <script type="text/javascript">
     $("#simulatorSelect").on('change',function(e) {
       var newRamo = $(this).val()
@@ -953,10 +977,14 @@
     })
     $("#prioridad").on('change', function (e) {
       var indexLoad = $(this).val()
-      currentSimulation.loadList(indexLoad)
+      let since = currentSimulation.loadList(indexLoad)
+      if(since === 0) {
+        $("#lastModPriority").html('Nunca')
+      } else $("#lastModPriority").html(milisToString(since))
       drawHorario()
       var newRamo = $('#simulatorSelect').val()
       drawList(newRamo)
+
     })
     $("#simulatorSelect2").on('change',function(e) {
       var newRamo = $(this).val()
@@ -965,13 +993,18 @@
     })
     $("#prioridad2").on('change', function (e) {
       var indexLoad = $(this).val()
-      currentSimulation.loadList(indexLoad)
+      let since = currentSimulation.loadList(indexLoad)
+      if(since === 0) {
+        $("#lastModPriority2").html('Nunca')
+      } else $("#lastModPriority2").html(milisToString(since))
       drawHorario()
       var newRamo = $('#simulatorSelect').val()
       drawList(newRamo)
     })
     function save(str){
       currentSimulation.saveList($("#prioridad" + str).val())
+      $("#lastModPriority" + str).html(milisToString(new Date().getTime()))
+      saveButtonAnimation(str)
     }
     $('#infoModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget) // Button that triggered the modal
