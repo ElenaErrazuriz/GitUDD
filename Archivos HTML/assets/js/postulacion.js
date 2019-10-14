@@ -19,11 +19,11 @@ class Postulacion {
     let array = localStorage.getItem('savedSimulations')
     if (array !== null) array = JSON.parse(array)
     else{
-      array = [[], [], []]
+      array = [{lastModified: 0, list:[]}, {lastModified: 0, list:[]}, {lastModified: 0, list:[]}]
       localStorage.setItem('savedSimulations', JSON.stringify(array))
     }
     this.priorities = array
-    this.ramosList = array[0]
+    this.ramosList = array[0].list
 
     this.simulationRamos = []
   }
@@ -31,11 +31,16 @@ class Postulacion {
     return this.ramosList
   }
   saveList (index) {
-    this.priorities[parseInt(index)] = this.ramosList
+    this.priorities[parseInt(index)].list = this.ramosList
+    this.priorities[parseInt(index)].lastModified = new Date().getTime()
     localStorage.setItem('savedSimulations', JSON.stringify(this.priorities))
   }
   loadList (index) {
-    this.ramosList = this.priorities[parseInt(index)]
+    this.ramosList = this.priorities[parseInt(index)].list
+    return this.priorities[parseInt(index)].lastModified
+  }
+  cleanList () {
+    this.ramosList = []
   }
   loadSimulationData (){
     this.simulationRamos = []
@@ -57,7 +62,6 @@ class Postulacion {
       }
     })
 
-    /* conseguir asyncornicamente la lista*/
   }
   addRamo (seccionObj) {
     this.ramosList = this.ramosList.concat([seccionObj])

@@ -36,7 +36,7 @@
 }
 
 .section-selected {
-	border: #3a8b00 solid 2px;
+	border: #8b211e solid 2px;
 }
 
 .no-bullets {
@@ -76,7 +76,6 @@
 .td-data-hour--subject-postulate {
 	background-color: #f2f9ff;
 	box-shadow: 0 8px 6px -6px #b0c4c9;
-	border:none;
 }
 
 .td-data-hour--subject-required {
@@ -153,6 +152,11 @@ a:focus, a:hover {
   box-shadow: 0 6px 6px -5px #ff8782;
 }
 
+.selected .dot {
+	background-color: #ffebeb;
+	box-shadow: 0 6px 6px -5px #ff8782;
+	border: #8b211e solid 2px;
+}
 
 
 footer{

@@ -51,6 +51,7 @@
                         <option value="1">Horario 2</option>
                         <option value="2">Horario 3</option>
                       </select>
+                      <p class="pull-lg-right text-muted">Guardado por última vez: <span id="lastModPriority"></span></p>
                     </div>
                     <table class="table schedule__table table-sm" ondragover="onDragOver(event)" ondrop="drop(event)">
                       <thead >
@@ -454,8 +455,8 @@
                       </tbody>
                     </table>
                     <div class="btn-group pull-lg-right">
-                      <button role="button" class="btn btn-primary" onclick="save('')">Guardar Simulacion</button>
-                      <i class="fas fa-check-circle"></i>
+                      <button role="button" class="btn btn-primary" onclick="save('')" id="savesimulation">Guardar Simulación</button>
+                      <button role="button" class="btn btn-danger" onclick="cleanHorario()"><i class="fa fa-trash"></i></button>
                     </div>
                   </div>
                   <div class="col-xs-8">
@@ -472,6 +473,7 @@
                           <li><h4>SIMBOLOGIA</h4></li>
                           <li class ="puede"><span class="dot"></span>Ramos Puede</li>
                           <li class ="topeH"><span class="dot"></span>Ramos con Tope de Horario</li>
+                          <li class ="selected"><span class="dot"></span>Seccion Seleccionada</li>
                         </ul>
                       </div>
                       
@@ -908,6 +910,7 @@
                           <li><h4>SIMBOLOGIA</h4></li>
                           <li class="puede"><span class="dot"></span>Ramos Puede</li>
                           <li class="topeH"><span class="dot"></span>Ramos con Tope de Horario</li>
+                          <li class ="selected"><span class="dot"></span>Seccion Seleccionada</li>
                         </ul>
                       </div>
                       <div class="input-group pull-lg-right">
@@ -917,8 +920,12 @@
                           <option value="2">Horario 3</option>
                         </select>
                         <div class="input-group-btn">
-                          <button role="button" class="btn btn-primary" onclick="save('2')">Guardar Simulacion</button>
+                          <button role="button" class="btn btn-primary" onclick="save('2')" id="savesimulation2">Guardar Simulación</button>
+                          <button role="button" class="btn btn-danger" onclick="cleanHorario()"><i class="fa fa-trash"></i></button>
                         </div>
+                      </div>
+                      <div>
+                        <p class="pull-right text-muted">Guardado por última vez: <span id="lastModPriority2"></span></p>
                       </div>
                     </div>
                   </div>
@@ -970,10 +977,14 @@
     })
     $("#prioridad").on('change', function (e) {
       var indexLoad = $(this).val()
-      currentSimulation.loadList(indexLoad)
+      let since = currentSimulation.loadList(indexLoad)
+      if(since === 0) {
+        $("#lastModPriority").html('Nunca')
+      } else $("#lastModPriority").html(milisToString(since))
       drawHorario()
       var newRamo = $('#simulatorSelect').val()
       drawList(newRamo)
+
     })
     $("#simulatorSelect2").on('change',function(e) {
       var newRamo = $(this).val()
@@ -982,13 +993,18 @@
     })
     $("#prioridad2").on('change', function (e) {
       var indexLoad = $(this).val()
-      currentSimulation.loadList(indexLoad)
+      let since = currentSimulation.loadList(indexLoad)
+      if(since === 0) {
+        $("#lastModPriority2").html('Nunca')
+      } else $("#lastModPriority2").html(milisToString(since))
       drawHorario()
       var newRamo = $('#simulatorSelect').val()
       drawList(newRamo)
     })
     function save(str){
       currentSimulation.saveList($("#prioridad" + str).val())
+      $("#lastModPriority" + str).html(milisToString(new Date().getTime()))
+      saveButtonAnimation(str)
     }
     $('#infoModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget) // Button that triggered the modal
