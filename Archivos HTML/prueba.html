@@ -993,6 +993,14 @@
       modal.find('.modal-footer .btn-danger').attr('onclick', 'delSection("' + codramo + '")')
     })
   </script>
-
+<script>
+  $.ajax({
+    url: 'https://testsecws.udd.cl/testTokenGoogle/WS_IdentificaUDD.asmx/PeticionProveedor?proveedor=4&peticion=JsonAlumno/ListaRamosAlumno/201911100C135',
+    method: 'GET',
+    success: function(data){
+      console.log(data)
+    }
+  })
+</script>
 </body>
 </html>
