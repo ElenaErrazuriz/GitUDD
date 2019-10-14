@@ -28,7 +28,7 @@ function delSection(idramo) {
 }
 // Focusear itemes de la lista de ramos arrastrables
 function setFocus (idramo, idseccion) {
-  $(".section-simulator-" + idramo + "-" + idseccion).addClass("section-selected")
+  $(".section-simulator-" + idramo + "-" + idseccion + ' > li').addClass("section-selected")
 }
 function convertBloque (bloque) {
   let conversorList = [{real: 'Lunes', abv: 'lun'},{real: 'Martes', abv: 'mar'},{real: 'Miércoles', abv: 'mie'},{real: 'Jueves', abv: 'jue'},{real: 'Viernes', abv: 'vie'},{real: 'Sábado', abv: 'sab'},{real: 'Domingo', abv: 'dom'},]
@@ -44,7 +44,7 @@ function convertBloque (bloque) {
 }
 // Desfocusear itemes de la lista de ramos arrastrables
 function deFocus (idramo) {
-  $(".section-simulator").each(function(index) {
+  $(".section-simulator > li").each(function(index) {
     $(this).data('idramo') === parseInt(idramo) ? $(this).removeClass('section-selected') : null
   })
 }
@@ -66,11 +66,21 @@ function drawHorario () {
     $(item).html("")
   })
   let ramos = currentSimulation.getList()
-  let aux
+  let aux, auxmobile
   ramos.forEach(function (ramo) {
     ramo.Bloques.forEach((bloque) => {
       bloque = convertBloque(bloque)
-      aux = $("." + bloque.Inicio.split(':')[0] + " > ." + bloque.abv)
+      aux = $("#pc ." + bloque.Inicio.split(':')[0] + " > ." + bloque.abv)
+      auxmobile = $("#mobile ." + bloque.Inicio.split(':')[0] + " > ." + bloque.abv)
+      let html =         '<span class="td-data-hour--content ' + 'ramo-' + ramo.CodRamo + '" >\n' +
+        '    <a href="#infoModal" data-toggle="modal" data-codramo="' + ramo.CodRamo + '" data-idseccion="' + ramo.IdSeccion + '" data-tipo="' + bloque.Tipo + '" data-ini="' + bloque.Inicio + '" data-fin="' + bloque.Fin + '" class="td-data-hour--subject td-data-hour--subject-postulate" style="margin-top: ' + (parseInt(bloque.Inicio.split(':')[1])/60)*(65) + 'px; height: ' + (bloque.duration/60)*65+'px">\n' +
+        '      <span class="td-popover td-popover--postulate">\n' +
+        '        <span class="title-td-subject"> ' + ramo.NombreRamo + '</span>\n' +
+        '        <span class="title-td-section">Sección ' + ramo.IdSeccion.split('_')[2] + '</span>\n' +
+        '      </span>\n' +
+        '    </a>\n' +
+        '</span>\n'
+      auxmobile.html(html)
       aux.html(
         '<span class="td-data-hour--content ' + 'ramo-' + ramo.CodRamo + '" >\n' +
         '    <a href="#infoModal" data-toggle="modal" data-codramo="' + ramo.CodRamo + '" data-idseccion="' + ramo.IdSeccion + '" data-tipo="' + bloque.Tipo + '" data-ini="' + bloque.Inicio + '" data-fin="' + bloque.Fin + '" class="td-data-hour--subject td-data-hour--subject-postulate" style="margin-top: ' + (parseInt(bloque.Inicio.split(':')[1])/60)*(65) + 'px; height: ' + (bloque.duration/60)*65+'px">\n' +
@@ -101,8 +111,9 @@ function drawList (newRamo) {
   })
   data[0].Secciones.forEach(function (item) {
     let availability = currentSimulation.checkAvailability(item.Bloques)
+    let headermobile = '<div class="horario-mobile section-simulator section-simulator-' + newRamo + '-' + item.IdSeccion + '" draggable="true" onmouseup="handleClick(this)" ondragstart="startdrag(event)" ondragend="undrag()" data-idramo="' + newRamo + '" data-idseccion="' + item.IdSeccion + '">\n'
+    let headerpc = '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.IdSeccion + '" draggable="true" onmouseup="handleClick(this)" ondragstart="startdrag(event)" ondragend="undrag()" data-idramo="' + newRamo + '" data-idseccion="' + item.IdSeccion + '">\n'
     let html =
-      '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.IdSeccion + '" draggable="true" onmouseup="handleClick(this)" ondragstart="startdrag(event)" ondragend="undrag()" data-idramo="' + newRamo + '" data-idseccion="' + item.IdSeccion + '">\n' +
       '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') +' no-bullets">\n' +
       '    <span class="td-popover td-popover--postulate">\n' +
       '      <span class="title-td-subject">' + item.IdSeccion.split('_')[1] +  '</span>\n' +
@@ -117,8 +128,8 @@ function drawList (newRamo) {
       '    </span>\n' +
       '  </li>\n' +
       '</div>\n';
-    list.append(html);
-    list2.append(html);
+    list.append( headerpc + html);
+    list2.append(headermobile + html);
   })
   var idSeccionFocus = currentSimulation.checkFocus(newRamo)
   if(idSeccionFocus !== '0'){

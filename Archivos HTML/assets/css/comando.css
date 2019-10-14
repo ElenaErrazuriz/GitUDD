@@ -13,6 +13,15 @@
     margin-left:80px;
     margin-top:3rem;
 }
+.horario-mobile{
+	position: relative;
+	display: inline-block;
+	height: 80px;
+	width: 80%;
+	margin: 10px 0px 10px 10px;
+	z-index: 1;
+}
+
 
 .horario2{
 	position: relative;
@@ -27,8 +36,7 @@
 }
 
 .section-selected {
-	/*box-shadow: inset 0 0 10px #3a8b00;*/
-	box-shadow: inset 0 0 20px #3e7fba;
+	border: #3a8b00 solid 2px;
 }
 
 .no-bullets {
@@ -53,9 +61,13 @@
 .list-horarios{
 	height: 700px;
 	overflow: scroll;
-
+	overflow-x: hidden;
 }
-
+.list-horarios-mobile{
+	height: 150px;
+	overflow: auto;
+	white-space: nowrap;
+}
 .schedule__table td {
 
 	height: 65px;
@@ -72,7 +84,6 @@
 	background-color: #f2f9ff;*/
 	box-shadow: 0 8px 6px -6px #ff8782;
 	background-color: #ffebeb;
-	border:none;
 }
 
 .lista-info {
