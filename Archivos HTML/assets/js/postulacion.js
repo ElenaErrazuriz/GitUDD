@@ -16,11 +16,11 @@ function check(bloque, bloque2){
 }
 class Postulacion {
   constructor(){
-    let array = localStorage.getItem('savedSimulations')
+    let array = localStorage.getItem('savedSimulations-codMatricula')
     if (array !== null) array = JSON.parse(array)
     else{
       array = [{lastModified: 0, list:[]}, {lastModified: 0, list:[]}, {lastModified: 0, list:[]}]
-      localStorage.setItem('savedSimulations', JSON.stringify(array))
+      localStorage.setItem('savedSimulations-codMatricula', JSON.stringify(array))
     }
     this.priorities = array
     this.ramosList = array[0].list
@@ -33,7 +33,7 @@ class Postulacion {
   saveList (index) {
     this.priorities[parseInt(index)].list = this.ramosList
     this.priorities[parseInt(index)].lastModified = new Date().getTime()
-    localStorage.setItem('savedSimulations', JSON.stringify(this.priorities))
+    localStorage.setItem('savedSimulations-codMatricula', JSON.stringify(this.priorities))
   }
   loadList (index) {
     this.ramosList = this.priorities[parseInt(index)].list
