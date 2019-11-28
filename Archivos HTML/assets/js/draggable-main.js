@@ -132,11 +132,15 @@ function drawList (newRamo) {
       let availability = currentSimulation.checkAvailability(item.Bloques)
       let headermobile = '<div class="horario-mobile section-simulator section-simulator-' + newRamo + '-' + item.IdSeccion + '" draggable="true" onmouseup="handleClick(this)" ondragstart="startdrag(event)" ondragend="undrag()" data-display="#mobile" data-idramo="' + newRamo + '" data-idseccion="' + item.IdSeccion + '">\n'
       let headerpc = '<div class="horario2 section-simulator section-simulator-' + newRamo + '-' + item.IdSeccion + '" draggable="true" onmouseup="handleClick(this)" ondragstart="startdrag(event)" ondragend="undrag()" data-display="#pc" data-idramo="' + newRamo + '" data-idseccion="' + item.IdSeccion + '">\n'
+      let name = item.NombreRamo
+      if(item.NombreRamo.length >= 60){
+        name = name.substring(0, 59) + '</br>' + name.substring(59)
+      }
       let html =
         '  <li class="td-data-hour--subject ' + (availability.isPosible ? 'td-data-hour--subject-postulate' : 'td-data-hour--subject-required') +' no-bullets">\n' +
         '    <span class="td-popover td-popover--postulate">\n' +
         '      <span class="title-td-subject">' + item.IdSeccion.split('_')[1] +  '</span>\n' +
-        '      <span class="title-td-data-subject">' + item.NombreRamo + '</span>\n' +
+        '      <span class="title-td-data-subject">' + name + '</span>\n' +
         '      <span class="title-td-section">Sección ' + (item.IdSeccion.split('_')[2]) + '</span>\n' +
         '      <span class="td-data-hour--campus">\n';
 

@@ -57,6 +57,9 @@ class Postulacion {
       if(takensections.length){
         let section = takensections[0]
         this.ramosList = this.ramosList.concat([section]);
+        this.priorities[0].list = this.priorities[0].list.concat([section])
+        this.priorities[1].list = this.priorities[1].list.concat([section])
+        this.priorities[2].list = this.priorities[2].list.concat([section])
       } else {
         this.simulationRamos = this.simulationRamos.concat([auxRamo])
       }
