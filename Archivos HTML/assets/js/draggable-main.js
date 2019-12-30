@@ -178,25 +178,38 @@ function handleClick (ev) {
         setFocus(idramo, idseccion)
         scrollTo(disp + ' #' + idramo + '0')
       } else {
-        let msg =
-          "Se eliminarán " + availability.ocurrences.filter(ramo => ramo.CodRamo !== idramo).length + " ramo(s) con tope :\n\n";
-        availability.ocurrences.forEach(ramo => {
-          if(ramo.CodRamo !== idramo){
-            msg += ' • ' + ramo.NombreRamo +'\n'
-          }
-        })
-        msg += '\n¿Seguro que desea continuar?'
-
-        if(confirm(msg)){
-          delSection(idramo)
-          availability.ocurrences.forEach((ramo) => {
-            delSection(ramo.CodRamo)
+        //revisa si hay tope
+        let seccionInscrita = availability.ocurrences.filter(ramo => ramo.Estado === 'INSCRITO')
+        if (seccionInscrita.length){
+          let denyMsg = 'No se puede agregar pues topa con un ramo ya inscrito \n\n'
+          seccionInscrita.forEach(item => {
+            if(item.CodRamo !== idramo){
+              denyMsg += ' • ' +  item.NombreRamo + '\n'
+            }
           })
-          currentSimulation.addRamo(data)
-          drawHorario()
-          setFocus(idramo, idseccion)
-          scrollTo(disp + ' #' + idramo + '0')
+          alert(denyMsg)
+        } else {
+          //si no hay tope con inscrito entonces se da la opción de reemplazar
+          let msg =
+            "Se eliminarán " + availability.ocurrences.filter(ramo => ramo.CodRamo !== idramo).length + " ramo(s) con tope :\n\n";
+          availability.ocurrences.forEach(ramo => {
+            if(ramo.CodRamo !== idramo){
+              msg += ' • ' + ramo.NombreRamo +'\n'
+            }
+          })
+          msg += '\n¿Seguro que desea continuar?'
 
+          if(confirm(msg)){
+            delSection(idramo)
+            availability.ocurrences.forEach((ramo) => {
+              delSection(ramo.CodRamo)
+            })
+            currentSimulation.addRamo(data)
+            drawHorario()
+            setFocus(idramo, idseccion)
+            scrollTo(disp + ' #' + idramo + '0')
+
+          }
         }
       }
       drawList(idramo)
@@ -205,11 +218,11 @@ function handleClick (ev) {
 }
 // Funcion que maneja el drop de los elementos en la tabla
 function drop(ev) {
-  ev.preventDefault();
+  ev.preventDefault()
   //conseguir los datos cargados al iniciar el drag
-  let idseccion = ev.dataTransfer.getData("idseccion");
-  let idramo = ev.dataTransfer.getData("idramo");
-  let disp = ev.dataTransfer.getData("display");
+  let idseccion = ev.dataTransfer.getData("idseccion")
+  let idramo = ev.dataTransfer.getData("idramo")
+  let disp = ev.dataTransfer.getData("display")
   dragging = false
   // detokenizar y borrar cualquier otra seccion del mismo ramo arrastrado
   let data = currentSimulation.getSeccionInfo(idramo, idseccion)
@@ -223,25 +236,37 @@ function drop(ev) {
       setFocus(idramo, idseccion)
       scrollTo(disp + ' #' + idramo + '0')
     } else {
-      let msg =
-        "Se eliminarán " + availability.ocurrences.filter(ramo => ramo.CodRamo !== idramo).length + " ramo(s) con tope :\n\n";
-      availability.ocurrences.forEach(ramo => {
-        if(ramo.CodRamo !== idramo){
-          msg += ' • ' + ramo.NombreRamo +'\n'
-        }
-      })
-      msg += '\n¿Seguro que desea continuar?'
-
-      if(confirm(msg)){
-        delSection(idramo)
-        availability.ocurrences.forEach((ramo) => {
-          delSection(ramo.CodRamo)
+      //revisa si hay tope
+      let seccionInscrita = availability.ocurrences.filter(ramo => ramo.Estado === 'INSCRITO')
+      if (seccionInscrita.length){
+        let denyMsg = 'No se puede agregar pues topa con un ramo ya inscrito \n\n'
+        seccionInscrita.forEach(item => {
+          if(item.CodRamo !== idramo){
+            denyMsg += ' • ' +  item.NombreRamo + '\n'
+          }
         })
-        currentSimulation.addRamo(data)
-        drawHorario()
-        setFocus(idramo, idseccion)
-        scrollTo(disp + ' #' + idramo + '0')
+        alert(denyMsg)
+      } else {
+        let msg =
+          "Se eliminarán " + availability.ocurrences.filter(ramo => ramo.CodRamo !== idramo).length + " ramo(s) con tope :\n\n";
+        availability.ocurrences.forEach(ramo => {
+          if (ramo.CodRamo !== idramo) {
+            msg += ' • ' + ramo.NombreRamo + '\n'
+          }
+        })
+        msg += '\n¿Seguro que desea continuar?'
 
+        if (confirm(msg)) {
+          delSection(idramo)
+          availability.ocurrences.forEach((ramo) => {
+            delSection(ramo.CodRamo)
+          })
+          currentSimulation.addRamo(data)
+          drawHorario()
+          setFocus(idramo, idseccion)
+          scrollTo(disp + ' #' + idramo + '0')
+
+        }
       }
     }
     drawList(idramo)
