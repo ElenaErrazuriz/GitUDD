@@ -16,9 +16,11 @@ function check(bloque, bloque2){
 }
 class Postulacion {
   constructor(){
+    this.firstLoad = false
     let array = localStorage.getItem('savedSimulations-codMatricula')
     if (array !== null) array = JSON.parse(array)
     else{
+      this.firstLoad = true
       array = [{lastModified: 0, list:[]}, {lastModified: 0, list:[]}, {lastModified: 0, list:[]}]
       localStorage.setItem('savedSimulations-codMatricula', JSON.stringify(array))
     }
@@ -54,7 +56,7 @@ class Postulacion {
         }
       })
       let takensections = ramo.Secciones.filter(seccion => seccion.Estado === 'INSCRITO')
-      if(takensections.length){
+      if(takensections.length && this.firstLoad){
         let section = takensections[0]
         this.ramosList = this.ramosList.concat([section]);
         this.priorities[0].list = this.priorities[0].list.concat([section])
